@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Greens · 资深项目经理</title>
-<meta name="description" content="10年复杂项目交付经验，曾任腾讯。规模化交付体系搭建、团队0-1管理、AI流程重构。">
+<meta name="description" content="Greens，资深项目经理。做了10年项目交付，曾任腾讯。相信好的交付靠体系跑，不靠人扛。">
 <link rel="preload" href="assets/fonts/Outfit-900.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -164,6 +164,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .cap.no-collapse .cap-toggle{display:none}
 }
 
+/* ============ PRINCIPLES ============ */
+.principles{display:flex;flex-direction:column;gap:14px}
+.principle{display:flex;gap:14px;align-items:flex-start}
+.p-num{font-size:11px;font-weight:500;color:var(--text-meta);padding-top:3px;min-width:20px}
+.principle p{font-size:13px;line-height:1.7;color:var(--text-secondary)}
+.principle strong{color:var(--text-primary);font-weight:700}
+@media(min-width:768px){.principle p{font-size:13.5px}}
+
 /* ============ PROJECTS (cards) ============ */
 .proj{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden;transition:box-shadow .25s}
 .proj:hover{box-shadow:var(--shadow-hover)}
@@ -315,6 +323,9 @@ details[open] .proj-body{grid-template-rows:1fr}
   .cap-toggle{display:none}
   .cap-tags{margin-top:6px}
   .cap-tags span{border:1px solid #ddd;background:none;padding:1px 6px}
+  .principles{gap:6px}
+  .principle p{font-size:10.5px;line-height:1.6}
+  .p-num{font-size:9px;padding-top:2px}
   .proj{box-shadow:none;border:1px solid #ddd;break-inside:avoid;margin-bottom:10px}
   .proj-body{display:grid !important;grid-template-rows:1fr !important}
   .proj-body-inner{overflow:visible}
@@ -356,7 +367,7 @@ details[open] .proj-body{grid-template-rows:1fr}
       <div class="name-underline"></div>
       <div class="sidebar-title">资深项目经理 / Senior PM</div>
       <div class="sidebar-edu-mobile">自考本科 · PMP 认证</div>
-      <p class="sidebar-tagline"><strong>10年</strong>复杂项目交付经验，曾任<strong>腾讯</strong>。擅长规模化交付体系搭建、团队0-1组建、AI流程重构。</p>
+      <p class="sidebar-tagline">做了10年项目交付，曾任腾讯。我越来越相信一件事：好的交付靠体系跑，不靠人扛。</p>
     </div>
   </div>
 
@@ -405,6 +416,7 @@ details[open] .proj-body{grid-template-rows:1fr}
     </div>
     <nav class="sidebar-nav" aria-label="页面导航">
       <a href="#capabilities" class="nav-link">核心能力</a>
+      <a href="#how" class="nav-link">做事方式</a>
       <a href="#projects" class="nav-link">代表项目</a>
       <a href="#experience" class="nav-link">职业经历</a>
       <a href="#tools" class="nav-link">工具技能</a>
@@ -428,7 +440,7 @@ details[open] .proj-body{grid-template-rows:1fr}
       <h3 class="cap-title">规模化交付体系搭建</h3>
       <div class="cap-bignum"><em>500+</em> 机构 · <em>95%+</em> 准时率 · <em>12</em> 项SOP</div>
       <div class="cap-story-wrap"><div class="cap-story">
-        <span class="hook">入职第一周，销售签了深圳三院的互联网医院，合同写"两周上线"，但交付部没人做过，研发排期排到三个月后。</span>两条路：花三个月闭门写SOP再推，或者先让机构跑起来边跑边改。我赌了后者，挑<strong>5家最配合的民营诊所</strong>先跑现场，每天晚上回酒店复盘当天的坑。三院那次销售过度承诺引发<strong>客户强烈投诉</strong>，之后我把"范围说明书签字确认"写成了交付第一步，没签的单不交。<strong>9个月后500家机构跑通，准时率95%+，沉淀12项SOP，固生堂年框续约逆势增长123%。</strong>
+        <span class="hook">入职第一周，销售签了深圳三院的互联网医院，合同写"两周上线"。</span>交付部没人做过，研发排期排到三个月后。我面前两条路：花三个月闭门写SOP再推，或者先让机构跑起来边跑边改。<strong>说实话当时没底</strong>，但我选了后者。挑了5家最配合的民营诊所先跑现场，每天晚上回酒店复盘当天踩的坑。三院那次销售过度承诺引发客户强烈投诉，我盯着把"范围说明书签字确认"写成了交付第一步——<strong>没签的单，不交</strong>。9个月后500家机构跑通，准时率95%+，沉淀12项SOP。固生堂的年框续约翻了一倍多。
       </div></div>
       <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
       <div class="cap-tags">
@@ -439,22 +451,41 @@ details[open] .proj-body{grid-template-rows:1fr}
     <div class="cap">
       <h3 class="cap-title">团队0-1组建与管理</h3>
       <div class="cap-bignum"><em>20</em> 人团队 · <em>8%</em> 离职率 · <em>15</em> 名骨干</div>
-      <div class="cap-story-wrap"><div class="cap-story">从0搭建<strong>20人交付团队</strong>，离职率<strong>8%</strong>（行业平均15%）。框架性授权加双通道培养，新人培训从1个月压到2周，输出<strong>15名</strong>能独立扛项目的骨干。</div></div>
+      <div class="cap-story-wrap"><div class="cap-story">我从0搭了一支<strong>20人</strong>的交付团队。离职率8%，行业平均是15%。没什么秘诀——框架性授权，新人培训从1个月压到2周，后来出了15个能独立扛项目的骨干。团队稳了，交付质量和客户续约自然就上来了。</div></div>
       <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
     </div>
 
     <div class="cap">
       <h3 class="cap-title">AI驱动流程重构</h3>
       <div class="cap-bignum"><em>8x</em> 产能 · <em>70%+</em> 周期缩短 · <em>10%</em> 转化峰值</div>
-      <div class="cap-story-wrap"><div class="cap-story">友时文化视觉生产全靠人，日均1-2套，往复修改40%是无效功。牵头搭<strong>ComfyUI自动化工作流</strong>加属性标签体系，产能拉到<strong>8倍</strong>，上架周期缩短<strong>70%+</strong>，转化率峰值<strong>10%</strong>。后续用多个AI agent从0搭了OZONOPS跨境电商SaaS，从认知到执行全链路跑通。</div></div>
+      <div class="cap-story-wrap"><div class="cap-story">友时的视觉生产全靠设计师手出图，一天1-2套，改到第四版运营还在说"感觉不对"。我牵头搭了ComfyUI自动化工作流加属性标签体系，一批素材半小时跑出来。产能拉到8倍，上架周期砍了七成，转化率峰值10%。后来我用同样的思路，调动多个AI agent从0到1搭了OZONOPS跨境电商SaaS。</div></div>
       <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
     </div>
 
     <div class="cap">
       <h3 class="cap-title">复杂项目与干系人治理</h3>
       <div class="cap-bignum"><em>千万级</em> DAU产品 · <em>0</em> 延期 · <em>20W+</em> 单月拉新</div>
-      <div class="cap-story-wrap"><div class="cap-story">腾讯时期统筹天天酷跑、王者荣耀等头部产品资源排期，负责<strong>千万级DAU产品的资源排期与版本节点管控</strong>，多项目并行<strong>0延期</strong>。顺丰同城百城万单加多品牌异业联动，<strong>转化6%到16%，单月拉新20W+</strong>。</div></div>
+      <div class="cap-story-wrap"><div class="cap-story">在腾讯，我统筹天天酷跑、王者荣耀这些头部产品的资源排期和版本节点——千万级DAU的产品，多项目并行，0延期。后来在顺丰同城做百城万单，同时跟喜茶、奈雪、海底捞几个品牌谈异业联动，转化率从6%拉到16%，单月拉新20W+。</div></div>
       <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="section" id="how" aria-label="做事方式">
+    <h2 class="sec-title">我做事的方式</h2>
+    <div class="principles">
+      <div class="principle">
+        <span class="p-num mono">01</span>
+        <p><strong>先跑通，再沉淀。</strong>别闭门写SOP，先让真实项目跑起来，方法自然会长出来。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num mono">02</span>
+        <p><strong>先证明，再投入。</strong>不确定的事不拍脑袋上，拿最小成本试出数据，再立项。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num mono">03</span>
+        <p><strong>框架授权，节点实控。</strong>搭好框架就敢放手让团队长，但里程碑和范围红线我自己盯。</p>
+      </div>
     </div>
   </section>
 
@@ -477,9 +508,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="ps"><div class="ps-num">12</div><div class="ps-label">标准SOP</div></div>
         </div>
         <div class="proj-detail">
-          <p><strong>背景：</strong>接手500+民营加32家公立互联网医院交付，公司无现成流程，销售过度承诺。</p>
-          <p><strong>做法：</strong>先跑20家真实机构再沉淀SOP；机构分层配套交付标准；四维监控模型；范围说明前置为铁律。</p>
-          <p><strong>结果：</strong>9个月全部跑通，准时率95%+，12项SOP，人均效能+50%，固生堂续约+123%。</p>
+          <p>接手时500多家民营机构加32家公立医院要交互联网医院，公司没有现成流程，销售还在过度承诺。我没有闭门写SOP，先挑20家真实机构跑起来，边跑边沉淀。机构按钻石、铂金、黄金分层，配套不同交付标准，又建了时间、成本、质量、满意度四维监控模型。深圳三院那次客户投诉后，我把<strong>"范围说明前置"定成了铁律</strong>。9个月全部跑通，准时率95%+，沉淀12项SOP，人均效能+50%。</p>
         </div>
       </div></div></div>
     </details>
@@ -499,7 +528,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="ps"><div class="ps-num">10<em>%</em></div><div class="ps-label">转化峰值</div></div>
         </div>
         <div class="proj-detail">
-          <p>传统视觉生产日均仅1-2套，上架滞后，往复修改40%是无效功。牵头搭建<strong>ComfyUI自动化工作流</strong>加属性标签体系，用批量生产替代人工出图，并通过A/B闭环迭代高转化视觉。最终<strong>产能提升8倍，上架周期缩短70%+，转化率峰值10%</strong>。后续用多个AI agent从0搭建OZONOPS跨境电商SaaS。</p>
+          <p>之前设计师一天出1-2套图，往复修改四成是无效功。我搭了ComfyUI自动化工作流加属性标签体系，用批量生产替代人工，再用A/B测试不断优化高转化视觉。产能提升8倍，上架周期缩短70%+，转化率峰值10%。后续我调动多个AI agent，从0到1搭了OZONOPS跨境电商SaaS。</p>
         </div>
       </div></div></div>
     </details>
@@ -515,7 +544,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2024 - 至今</div>
           <div class="exp-company">深圳友时文化有限公司</div>
           <div class="exp-role">项目经理 / 交付负责人</div>
-          <div class="exp-result">AIGC工作流重构视觉生产，<strong>产能提升8倍</strong>；从0搭建OZONOPS跨境SaaS。</div>
+          <div class="exp-result">我用AIGC工作流重构了视觉生产，<strong>产能提升8倍</strong>；从0到1搭了OZONOPS跨境SaaS。</div>
         </div>
       </div>
       <div class="exp">
@@ -524,7 +553,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2020 - 2024</div>
           <div class="exp-company">深圳宁远科技股份有限公司</div>
           <div class="exp-role">项目交付经理 / 深圳区域负责人</div>
-          <div class="exp-result">0-1搭建20人团队和交付体系，<strong>9个月跑通500+机构</strong>。</div>
+          <div class="exp-result">我从0搭了20人团队和交付体系，<strong>9个月跑通500+机构</strong>。</div>
         </div>
       </div>
       <div class="exp">
@@ -533,7 +562,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2019 - 2020</div>
           <div class="exp-company">深圳顺丰同城物流有限公司</div>
           <div class="exp-role">活动项目经理</div>
-          <div class="exp-result">百城万单异业联动，<strong>转化6%到16%，单月拉新20W+</strong>。</div>
+          <div class="exp-result">百城万单异业联动，我把转化率从6%拉到16%，<strong>单月拉新20W+</strong>。</div>
         </div>
       </div>
       <div class="exp">
@@ -542,7 +571,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2017 - 2019</div>
           <div class="exp-company">上海游民网络科技有限公司</div>
           <div class="exp-role">游戏发行 / 汇报创新发展部CMO</div>
-          <div class="exp-result">2-3人团队0流程全案发行，《领主总动员》预月百万流水，《狩游世界》TapTap 8.5分。</div>
+          <div class="exp-result">2-3人团队0流程全案发行，我一个人就是一套SOP。《领主总动员》预月百万流水，《狩游世界》TapTap 8.5分。</div>
         </div>
       </div>
       <div class="exp">
@@ -551,7 +580,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2015 - 2017</div>
           <div class="exp-company">腾讯科技（深圳）有限公司</div>
           <div class="exp-role">游戏中心运营 / 手Q游戏中心</div>
-          <div class="exp-result">统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>千万级DAU产品，多项目并行0延期</strong>。</div>
+          <div class="exp-result">我统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>千万级DAU产品，多项目并行0延期</strong>。</div>
         </div>
       </div>
     </div>
