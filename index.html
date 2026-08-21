@@ -44,7 +44,6 @@ a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .mono{font-family:'JetBrains Mono',monospace}
 
-/* Scroll progress bar - PC only */
 .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--acc);width:0;z-index:100;transition:width .1s linear;opacity:.7;display:none}
 @media(min-width:768px){.progress-bar{display:block}}
 
@@ -60,7 +59,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .sidebar{padding:20px 16px 24px}
 @media(min-width:768px){.sidebar{padding:36px 24px;position:sticky;top:0;height:100dvh;overflow-y:auto;display:flex;flex-direction:column}}
 
-/* Mobile: compact horizontal header */
 .sidebar-top{display:flex;gap:14px;align-items:flex-start}
 .sidebar-photo{width:84px;height:96px;border-radius:8px;overflow:hidden;flex-shrink:0;box-shadow:var(--shadow);background:var(--tag-bg)}
 .sidebar-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
@@ -70,15 +68,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .sidebar-title{font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:3px}
 .sidebar-edu-mobile{font-size:10px;font-weight:600;color:var(--text-meta);margin-bottom:4px}
 .sidebar-tagline{font-size:11.5px;color:var(--text-secondary);line-height:1.5;display:none}
-.sidebar-tagline strong{color:var(--text-primary);font-weight:700}
 
-/* Mobile: quick stats inline */
 .sidebar-quick{display:flex;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-soft)}
 .sidebar-quick .q-num{font-size:20px;font-weight:900;line-height:1}
 .sidebar-quick .q-num em{font-style:normal;font-size:13px;color:var(--acc)}
 .sidebar-quick .q-label{font-size:9px;font-weight:600;color:var(--text-meta);margin-top:2px}
 
-/* Mobile contact buttons */
 .sidebar-mobile-actions{display:flex;gap:8px;margin-top:12px}
 .btn-contact-mobile{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:var(--text-primary);color:var(--bg-card);font-size:12px;font-weight:700;border-radius:8px;transition:background .2s}
 .btn-contact-mobile:active{background:var(--acc)}
@@ -86,7 +81,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .btn-contact-mobile.ghost{background:var(--tag-bg);color:var(--text-primary)}
 .btn-contact-mobile.ghost svg{stroke:var(--text-primary)}
 
-/* PC sidebar card layout */
 .sidebar-card{display:none}
 @media(min-width:768px){
   .sidebar{padding:0}
@@ -111,12 +105,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .btn-contact{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;background:var(--text-primary);color:var(--bg-card);font-size:13px;font-weight:700;border-radius:8px;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
   .btn-contact:hover{background:var(--acc);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
   .btn-contact svg{width:14px;height:14px;stroke:var(--bg-card);fill:none;stroke-width:2}
-  /* PC sidebar stats */
   .sidebar-stats{display:flex;gap:24px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-soft)}
   .ss-num{font-size:26px;font-weight:900;line-height:1;letter-spacing:-1px}
   .ss-num em{font-style:normal;font-size:14px;color:var(--acc)}
   .ss-label{font-size:10px;font-weight:600;color:var(--text-meta);margin-top:3px}
-  /* PC sidebar nav */
   .sidebar-nav{margin-top:16px;padding-top:12px;border-top:1px solid var(--border-soft)}
   .sidebar-nav a{display:block;font-size:12px;font-weight:600;color:var(--text-meta);padding:5px 0;transition:color .2s,padding-left .2s;border-left:2px solid transparent;padding-left:10px;margin-left:-10px}
   .sidebar-nav a:hover{color:var(--text-primary)}
@@ -130,80 +122,75 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .main{padding:8px 16px 80px}
 @media(min-width:768px){.main{padding:40px 36px 56px}}
 @media(min-width:1200px){.main{padding:48px 48px 56px}}
-.section{margin-bottom:36px}
+.section{margin-bottom:40px}
 .section:last-child{margin-bottom:0}
 .sec-title{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--text-meta);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--border-soft)}
 
-/* ============ CAPABILITY CARDS ============ */
-.cap{position:relative;background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 20px 18px 22px;margin-bottom:12px;border-left:4px solid var(--text-meta);transition:border-color .25s,box-shadow .25s,transform .2s}
-.cap:hover{border-left-color:var(--acc);box-shadow:var(--shadow-hover);transform:translateX(2px)}
-.cap-title{font-size:17px;font-weight:800;line-height:1.3;margin-bottom:8px;transition:color .2s}
-.cap:hover .cap-title{color:var(--acc)}
-.cap-bignum{font-size:14px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;line-height:1.5}
-.cap-bignum em{font-style:normal;font-size:20px;font-weight:900;color:var(--acc);margin:0 1px}
-.cap-story{font-size:13px;line-height:1.85;color:var(--text-secondary)}
-.cap-story strong{color:var(--text-primary);font-weight:700}
-.cap-story .hook{font-weight:700;color:var(--text-primary)}
-.cap-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.cap-tags span{font-size:10.5px;font-weight:600;color:var(--tag-text);background:var(--tag-bg);padding:3px 10px;border-radius:20px}
-.cap-only-first .cap-tags{display:none}
-.cap:first-child .cap-tags{display:flex}
-
-/* Mobile: story collapsed (only first card) */
-.cap-story-wrap{overflow:hidden;max-height:none;transition:max-height .35s ease}
-.cap-toggle{display:none;font-size:11px;font-weight:700;color:var(--acc);margin-top:8px;padding:0}
-@media(max-width:767px){
-  .cap{padding:16px 16px 14px 18px}
-  .cap-story-wrap{max-height:0}
-  .cap.expanded .cap-story-wrap{max-height:800px}
-  .cap-toggle{display:inline-flex;align-items:center;gap:4px}
-  .cap-toggle .arrow{transition:transform .25s;display:inline-block}
-  .cap.expanded .cap-toggle .arrow{transform:rotate(180deg)}
-  .cap.no-collapse .cap-story-wrap{max-height:none}
-  .cap.no-collapse .cap-toggle{display:none}
+/* ============ STORY ============ */
+.story-content{max-width:680px}
+.story-content p{font-size:14px;line-height:1.9;color:var(--text-secondary);margin-bottom:16px}
+.story-content p strong{color:var(--text-primary);font-weight:700}
+.story-highlight{font-size:16px!important;font-weight:700;color:var(--text-primary)!important;line-height:1.7!important;padding:16px 0;margin:8px 0}
+.story-quote{font-size:14px;color:var(--text-primary)!important;font-weight:600;border-left:3px solid var(--acc);padding-left:16px;margin-top:8px!important}
+@media(min-width:768px){
+  .story-content p{font-size:14.5px}
+  .story-highlight{font-size:18px!important}
 }
 
 /* ============ PRINCIPLES ============ */
-.principles{display:flex;flex-direction:column;gap:14px}
+.principles{display:flex;flex-direction:column;gap:18px;max-width:680px}
 .principle{display:flex;gap:14px;align-items:flex-start}
-.p-num{font-size:11px;font-weight:500;color:var(--text-meta);padding-top:3px;min-width:20px}
-.principle p{font-size:13px;line-height:1.7;color:var(--text-secondary)}
-.principle strong{color:var(--text-primary);font-weight:700}
-@media(min-width:768px){.principle p{font-size:13.5px}}
+.p-num{font-size:11px;font-weight:500;color:var(--text-meta);padding-top:3px;min-width:24px}
+.principle-body{flex:1}
+.principle-title{font-size:14.5px;font-weight:800;color:var(--text-primary);margin-bottom:3px}
+.principle-desc{font-size:13px;line-height:1.75;color:var(--text-secondary)}
+@media(min-width:768px){.principle-title{font-size:15px}.principle-desc{font-size:13.5px}}
 
-/* ============ PROJECTS (cards) ============ */
-.proj{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden;transition:box-shadow .25s}
-.proj:hover{box-shadow:var(--shadow-hover)}
-.proj-head{padding:18px 20px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;width:100%;text-align:left;transition:background .2s}
-.proj-head:hover{background:rgba(0,0,0,.015)}
-.proj-head::-webkit-details-marker{display:none}
-.proj-title{font-size:16px;font-weight:800;line-height:1.3;color:var(--text-primary)}
-.proj-cat{font-size:10px;font-weight:700;color:var(--text-meta);letter-spacing:1px;margin-bottom:5px}
-.proj-toggle{font-size:20px;font-weight:300;color:var(--text-meta);transition:transform .3s ease;flex-shrink:0;width:20px;text-align:center;line-height:1}
-details[open] .proj-toggle{transform:rotate(45deg)}
-.proj-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
-details[open] .proj-body{grid-template-rows:1fr}
-.proj-body-inner{overflow:hidden}
-.proj-body-content{padding:0 20px 18px}
-.proj-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:12px 0;border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);margin-bottom:12px}
-.ps{text-align:center;padding:0 8px;border-right:1px solid var(--border-soft)}
-.ps:last-child{border-right:none}
-.ps-num{font-size:22px;font-weight:900;line-height:1;letter-spacing:-.5px;color:var(--text-primary)}
-.ps-num em{font-style:normal;font-size:13px;color:var(--acc)}
-.ps-label{font-size:9px;font-weight:600;color:var(--text-meta);margin-top:3px}
-.proj-detail{font-size:12.5px;line-height:1.8;color:var(--text-secondary)}
-.proj-detail strong{color:var(--text-primary);font-weight:700}
-.proj-detail p{margin-bottom:6px}
-.proj-detail p:last-child{margin-bottom:0}
+/* ============ PROJECT CARDS ============ */
+.proj-card{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:14px;cursor:pointer;transition:box-shadow .25s,transform .25s;text-align:left;width:100%;display:block}
+.proj-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.proj-cat{font-size:10px;font-weight:700;color:var(--text-meta);letter-spacing:1px;margin-bottom:6px}
+.proj-card-title{font-size:16px;font-weight:800;line-height:1.3;color:var(--text-primary);margin-bottom:6px}
+.proj-summary{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+.proj-cta{font-size:12px;font-weight:700;color:var(--acc);display:inline-flex;align-items:center;gap:4px}
 @media(min-width:768px){
-  .proj-head{padding:22px 24px 16px}
-  .proj-title{font-size:17px}
-  .proj-body-content{padding:0 24px 20px}
+  .proj-card{padding:24px}
+  .proj-card-title{font-size:17px}
+}
+
+/* ============ MODAL ============ */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;padding:16px}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal{background:var(--bg-card);border-radius:12px;width:100%;max-width:680px;max-height:85vh;display:flex;flex-direction:column;transform:translateY(20px);transition:transform .25s ease-out;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:8px;right:8px;width:44px;height:44px;font-size:20px;color:var(--text-meta);display:flex;align-items:center;justify-content:center;border-radius:8px;z-index:2;transition:background .2s,color .2s}
+.modal-close:hover{background:var(--tag-bg);color:var(--text-primary)}
+.modal-header{padding:24px 28px 16px;padding-right:60px;border-bottom:1px solid var(--border-soft)}
+.modal-cat{font-size:10px;font-weight:700;color:var(--text-meta);letter-spacing:1px;margin-bottom:6px}
+.modal-title{font-size:18px;font-weight:800;line-height:1.3;color:var(--text-primary)}
+.modal-body{padding:20px 28px;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
+.star-section{margin-bottom:20px}
+.star-section:last-child{margin-bottom:0}
+.star-label{font-size:13px;font-weight:700;color:var(--acc);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.star-section p{font-size:14px;line-height:1.85;color:var(--text-secondary);margin-bottom:10px}
+.star-section p:last-child{margin-bottom:0}
+.star-section strong{color:var(--text-primary);font-weight:700}
+.star-insight{border-left:3px solid var(--acc);padding:10px 16px;margin-top:14px;background:var(--tag-bg);border-radius:0 6px 6px 0;font-size:13.5px;color:var(--text-primary);font-weight:600;line-height:1.7}
+.modal-footer{padding:14px 28px;border-top:1px solid var(--border-soft);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.modal-tags{font-size:11px;color:var(--text-meta);font-weight:600}
+.modal-next{font-size:12px;font-weight:700;color:var(--acc);padding:6px 12px;border-radius:6px;transition:background .2s}
+.modal-next:hover{background:var(--tag-bg)}
+@media(max-width:767px){
+  .modal{max-height:90vh}
+  .modal-header{padding:20px 20px 14px;padding-right:56px}
+  .modal-body{padding:16px 20px}
+  .modal-footer{padding:12px 20px}
+  .star-section p{font-size:13.5px;line-height:1.8}
+  .modal-title{font-size:16px}
 }
 
 /* ============ EXPERIENCE ============ */
-/* Mobile: compact list */
 .exp{padding:12px 0;border-bottom:1px solid var(--border-soft)}
 .exp:last-child{border-bottom:none}
 .exp-year{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-meta);margin-bottom:2px}
@@ -213,7 +200,6 @@ details[open] .proj-body{grid-template-rows:1fr}
 .exp-result strong{color:var(--text-primary);font-weight:700}
 .exp-dot,.timeline::before{display:none}
 
-/* PC: timeline */
 @media(min-width:768px){
   .timeline{position:relative;padding-left:24px}
   .timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--border-soft);display:block}
@@ -232,13 +218,11 @@ details[open] .proj-body{grid-template-rows:1fr}
 }
 
 /* ============ TOOLS ============ */
-/* Mobile: horizontal scroll pills */
 .tools-scroll{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:scroll}
 .tools-scroll::-webkit-scrollbar{display:none}
 .tool-pill{flex-shrink:0;font-size:11px;font-weight:600;color:var(--tag-text);background:var(--tag-bg);padding:6px 12px;border-radius:20px;white-space:nowrap}
 .tools-cards{display:none}
 
-/* PC: 4-card matrix */
 @media(min-width:768px){
   .tools-scroll{display:none}
   .tools-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
@@ -249,20 +233,27 @@ details[open] .proj-body{grid-template-rows:1fr}
   .tool-list{font-size:11.5px;font-weight:600;color:var(--text-secondary);line-height:1.8}
 }
 
+/* ============ OUTSIDE WORK ============ */
+.outside-content{max-width:680px}
+.outside-item{margin-bottom:14px;font-size:13px;line-height:1.7;color:var(--text-secondary)}
+.outside-item:last-child{margin-bottom:0}
+.outside-label{font-weight:700;color:var(--text-primary);margin-right:6px}
+.outside-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.outside-tags span{font-size:10.5px;font-weight:600;color:var(--tag-text);background:var(--tag-bg);padding:3px 10px;border-radius:20px}
+
 /* ============ BOTTOM CONTACT ============ */
 .bottom-contact{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 24px;text-align:center;margin-bottom:20px}
 .bottom-contact h3{font-size:22px;font-weight:900;margin-bottom:6px;color:var(--text-primary)}
-.bottom-contact p{font-size:13px;color:var(--text-secondary);margin-bottom:18px}
+.bottom-contact p{font-size:13px;color:var(--text-secondary);margin-bottom:18px;line-height:1.7}
 .qr-wrap{display:inline-block;padding:10px;border-radius:10px;background:var(--bg-page);margin-bottom:12px}
 .qr-wrap img{width:110px;height:110px;border-radius:6px}
 .bottom-contact .wechat-id{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;letter-spacing:1px;margin-bottom:12px;color:var(--text-primary)}
 .btn-contact-bottom{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 28px;background:var(--text-primary);color:var(--bg-card);font-size:13px;font-weight:700;border-radius:8px;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
 .btn-contact-bottom:hover{background:var(--acc);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
 
-/* Mobile: hide bottom contact section (use fixed bar instead) */
 @media(max-width:767px){.bottom-contact{display:none}}
 
-/* ============ MOBILE FIXED CONTACT BAR ============ */
+/* ============ MOBILE FIXED BAR ============ */
 .mobile-bar{position:fixed;bottom:0;left:0;right:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg-card);box-shadow:0 -2px 12px rgba(0,0,0,.08);display:flex;gap:8px}
 @media(min-width:768px){.mobile-bar{display:none}}
 .mobile-bar button{flex:1;padding:13px;font-size:13px;font-weight:700;border-radius:8px;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:6px}
@@ -271,7 +262,6 @@ details[open] .proj-body{grid-template-rows:1fr}
 .mobile-bar .btn-email{background:var(--tag-bg);color:var(--text-primary)}
 .mobile-bar svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
 
-/* Contact toast */
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text-primary);color:var(--bg-card);padding:10px 20px;border-radius:8px;font-size:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:200;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -283,8 +273,7 @@ details[open] .proj-body{grid-template-rows:1fr}
 /* ============ DARK MODE ============ */
 @media(prefers-color-scheme:dark){
   .sidebar-photo{background:#262626}
-  .proj-head:hover{background:rgba(255,255,255,.03)}
-  .exp-main:hover{background:#262626}
+  .proj-card:hover{background:#252525}
   .qr-wrap{background:#141414}
   .mobile-bar{background:#1E1E1E}
 }
@@ -293,7 +282,7 @@ details[open] .proj-body{grid-template-rows:1fr}
 @media print{
   @page{size:A4;margin:12mm}
   body{background:#fff;color:#000;font-size:11px}
-  .progress-bar,.mobile-bar,.toast,.btn-pdf{display:none}
+  .progress-bar,.mobile-bar,.toast,.btn-pdf,.modal-overlay,.proj-cta{display:none!important}
   .page{display:block;max-width:100%}
   .sidebar{position:static;height:auto;padding:0 0 14px;display:block}
   .sidebar-top{display:flex;gap:16px;align-items:flex-start}
@@ -302,6 +291,7 @@ details[open] .proj-body{grid-template-rows:1fr}
   .sidebar-name{font-size:24px}
   .name-underline{margin:4px 0 6px;width:24px;height:2px}
   .sidebar-title{font-size:11px}
+  .sidebar-edu-mobile{display:block}
   .sidebar-tagline{display:block;font-size:10.5px;margin-bottom:8px}
   .sidebar-quick,.sidebar-mobile-actions{display:none}
   .sidebar-card{display:block;box-shadow:none;padding:0;margin:10px 0 0;border-top:1px solid #ddd;padding-top:10px}
@@ -312,26 +302,19 @@ details[open] .proj-body{grid-template-rows:1fr}
   .sidebar-stats{display:flex;gap:20px;margin-top:8px;padding-top:8px}
   .sidebar-nav{display:none}
   .main{padding:14px 0 0}
-  .section{margin-bottom:16px}
+  .section{margin-bottom:14px}
   .sec-title{font-size:9px;margin-bottom:8px;color:#666}
   .sec-title::after{display:none}
-  .cap{border-left:2px solid #D94F3A;padding:10px 12px;break-inside:avoid;box-shadow:none;background:#fff;margin-bottom:8px}
-  .cap-title{font-size:13px;margin-bottom:4px}
-  .cap-bignum{font-size:11px;margin-bottom:4px}
-  .cap-story{font-size:10.5px;line-height:1.7}
-  .cap-story-wrap{max-height:none !important}
-  .cap-toggle{display:none}
-  .cap-tags{margin-top:6px}
-  .cap-tags span{border:1px solid #ddd;background:none;padding:1px 6px}
-  .principles{gap:6px}
-  .principle p{font-size:10.5px;line-height:1.6}
-  .p-num{font-size:9px;padding-top:2px}
-  .proj{box-shadow:none;border:1px solid #ddd;break-inside:avoid;margin-bottom:10px}
-  .proj-body{display:grid !important;grid-template-rows:1fr !important}
-  .proj-body-inner{overflow:visible}
-  .proj-toggle{display:none}
-  .proj-stats{border-color:#ddd}
-  .ps{border-color:#ddd}
+  .story-content p{font-size:10.5px;line-height:1.7;margin-bottom:8px}
+  .story-highlight{font-size:12px!important;padding:8px 0}
+  .story-quote{font-size:10.5px!important}
+  .principles{gap:8px}
+  .principle-title{font-size:11px}
+  .principle-desc{font-size:10px;line-height:1.6}
+  .p-num{font-size:9px}
+  .proj-card{box-shadow:none;border:1px solid #ddd;break-inside:avoid;padding:10px 12px;margin-bottom:8px;cursor:default}
+  .proj-card-title{font-size:12px}
+  .proj-summary{font-size:10.5px}
   .timeline::before{background:#ccc}
   .exp-dot{display:block;border-color:#999;background:#fff}
   .exp.current .exp-dot{border-color:#D94F3A;background:#D94F3A}
@@ -340,10 +323,11 @@ details[open] .proj-body{grid-template-rows:1fr}
   .tools-scroll{display:none}
   .tools-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
   .tool-card{box-shadow:none;border:1px solid #ddd;padding:6px}
+  .outside-item{font-size:10.5px;margin-bottom:6px}
   .bottom-contact{display:block;box-shadow:none;border:1px solid #ddd;padding:14px;text-align:left;margin-top:14px}
   .qr-wrap{display:none}
   .footer{display:none}
-  *{animation:none !important;transition:none !important}
+  *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -357,7 +341,6 @@ details[open] .proj-body{grid-template-rows:1fr}
 
 <!-- ========== SIDEBAR ========== -->
 <aside class="sidebar">
-  <!-- Mobile compact header -->
   <div class="sidebar-top">
     <div class="sidebar-photo">
       <img src="assets/hero.webp" alt="Greens 职业照" fetchpriority="high" width="600" height="600">
@@ -371,14 +354,11 @@ details[open] .proj-body{grid-template-rows:1fr}
     </div>
   </div>
 
-  <!-- Mobile quick stats -->
   <div class="sidebar-quick">
     <div><div class="q-num">10<em>+</em></div><div class="q-label">年交付</div></div>
     <div><div class="q-num">500<em>+</em></div><div class="q-label">机构</div></div>
-    <div><div class="q-num">8<em>x</em></div><div class="q-label">AI产能</div></div>
   </div>
 
-  <!-- Mobile action buttons -->
   <div class="sidebar-mobile-actions">
     <button class="btn-contact-mobile" onclick="copyWechat(this)">
       <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -390,7 +370,6 @@ details[open] .proj-body{grid-template-rows:1fr}
     </a>
   </div>
 
-  <!-- PC full sidebar card -->
   <div class="sidebar-card">
     <div class="sidebar-edu">
       <span class="edu-tag">自考本科 · 商务秘书</span>
@@ -415,11 +394,12 @@ details[open] .proj-body{grid-template-rows:1fr}
       <div class="ss"><div class="ss-num">500<em>+</em></div><div class="ss-label">机构规模</div></div>
     </div>
     <nav class="sidebar-nav" aria-label="页面导航">
-      <a href="#capabilities" class="nav-link">核心能力</a>
+      <a href="#story" class="nav-link">我的故事</a>
       <a href="#how" class="nav-link">做事方式</a>
-      <a href="#projects" class="nav-link">代表项目</a>
+      <a href="#projects" class="nav-link">精选案例</a>
       <a href="#experience" class="nav-link">职业经历</a>
       <a href="#tools" class="nav-link">工具技能</a>
+      <a href="#outside" class="nav-link">工作之外</a>
       <a href="#contact-section" class="nav-link">联系我</a>
     </nav>
     <button class="btn-pdf" onclick="window.print()">
@@ -432,106 +412,69 @@ details[open] .proj-body{grid-template-rows:1fr}
 <!-- ========== MAIN ========== -->
 <main class="main" id="main">
 
-  <!-- CORE CAPABILITIES -->
-  <section class="section" id="capabilities" aria-label="核心能力">
-    <h2 class="sec-title">核心能力</h2>
-
-    <div class="cap">
-      <h3 class="cap-title">规模化交付体系搭建</h3>
-      <div class="cap-bignum"><em>500+</em> 机构 · <em>95%+</em> 准时率 · <em>12</em> 项SOP</div>
-      <div class="cap-story-wrap"><div class="cap-story">
-        <span class="hook">入职第一周，销售签了深圳三院的互联网医院，合同写"两周上线"。</span>交付部没人做过，研发排期排到三个月后。我面前两条路：花三个月闭门写SOP再推，或者先让机构跑起来边跑边改。<strong>说实话当时没底</strong>，但我选了后者。挑了5家最配合的民营诊所先跑现场，每天晚上回酒店复盘当天踩的坑。三院那次销售过度承诺引发客户强烈投诉，我盯着把"范围说明书签字确认"写成了交付第一步——<strong>没签的单，不交</strong>。9个月后500家机构跑通，准时率95%+，沉淀12项SOP。固生堂的年框续约翻了一倍多。
-      </div></div>
-      <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
-      <div class="cap-tags">
-        <span>SOP体系</span><span>机构分层</span><span>四维监控</span><span>范围前置</span>
-      </div>
-    </div>
-
-    <div class="cap">
-      <h3 class="cap-title">团队0-1组建与管理</h3>
-      <div class="cap-bignum"><em>20</em> 人团队 · <em>8%</em> 离职率 · <em>15</em> 名骨干</div>
-      <div class="cap-story-wrap"><div class="cap-story">我从0搭了一支<strong>20人</strong>的交付团队。离职率8%，行业平均是15%。没什么秘诀——框架性授权，新人培训从1个月压到2周，后来出了15个能独立扛项目的骨干。团队稳了，交付质量和客户续约自然就上来了。</div></div>
-      <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
-    </div>
-
-    <div class="cap">
-      <h3 class="cap-title">AI驱动流程重构</h3>
-      <div class="cap-bignum"><em>8x</em> 产能 · <em>70%+</em> 周期缩短 · <em>10%</em> 转化峰值</div>
-      <div class="cap-story-wrap"><div class="cap-story">友时的视觉生产全靠设计师手出图，一天1-2套，改到第四版运营还在说"感觉不对"。我牵头搭了ComfyUI自动化工作流加属性标签体系，一批素材半小时跑出来。产能拉到8倍，上架周期砍了七成，转化率峰值10%。后来我用同样的思路，调动多个AI agent从0到1搭了OZONOPS跨境电商SaaS。</div></div>
-      <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
-    </div>
-
-    <div class="cap">
-      <h3 class="cap-title">复杂项目与干系人治理</h3>
-      <div class="cap-bignum"><em>千万级</em> DAU产品 · <em>0</em> 延期 · <em>20W+</em> 单月拉新</div>
-      <div class="cap-story-wrap"><div class="cap-story">在腾讯，我统筹天天酷跑、王者荣耀这些头部产品的资源排期和版本节点——千万级DAU的产品，多项目并行，0延期。后来在顺丰同城做百城万单，同时跟喜茶、奈雪、海底捞几个品牌谈异业联动，转化率从6%拉到16%，单月拉新20W+。</div></div>
-      <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
+  <!-- MY STORY -->
+  <section class="section" id="story" aria-label="我的故事">
+    <h2 class="sec-title">我的故事</h2>
+    <div class="story-content">
+      <p>有人问我为什么从腾讯去3个人的创业公司。我说，在腾讯我学会了体系，但我想知道，如果什么都没有，我能不能自己长出一套来。</p>
+      <p>后来我在游民一个人就是一套SOP，在顺丰把异业联动转化率翻了快3倍，在宁远从0搭了20人团队撑住500家机构交付。现在在友时，我用AI把整条视觉生产流水线重画了一遍。</p>
+      <p class="story-highlight">10年，5家公司，4个行业。看起来跳得很散，但底层是同一件事：<strong>在没有路的地方，跑出一条路来，然后把它变成所有人都能走的体系。</strong></p>
+      <p class="story-quote">好的交付不是靠人扛，是靠体系跑。这是我踩了无数坑之后，最相信的一件事。</p>
     </div>
   </section>
 
   <!-- HOW I WORK -->
-  <section class="section" id="how" aria-label="做事方式">
+  <section class="section" id="how" aria-label="我做事的方式">
     <h2 class="sec-title">我做事的方式</h2>
     <div class="principles">
       <div class="principle">
         <span class="p-num mono">01</span>
-        <p><strong>先跑通，再沉淀。</strong>别闭门写SOP，先让真实项目跑起来，方法自然会长出来。</p>
+        <div class="principle-body">
+          <div class="principle-title">先跑通，再沉淀</div>
+          <div class="principle-desc">别闭门写SOP，先让真实项目跑起来，方法自然会长出来。宁远的第一版SOP是用踩坑记录堆出来的，不是设计出来的。</div>
+        </div>
       </div>
       <div class="principle">
         <span class="p-num mono">02</span>
-        <p><strong>先证明，再投入。</strong>不确定的事不拍脑袋上，拿最小成本试出数据，再立项。</p>
+        <div class="principle-body">
+          <div class="principle-title">范围前置是铁律</div>
+          <div class="principle-desc">销售为了签单什么都敢承诺，但交付不能跟着承诺走。深圳三院那次之后，我把"范围说明书签字确认"写成了交付第一步——没签的单，不交。</div>
+        </div>
       </div>
       <div class="principle">
         <span class="p-num mono">03</span>
-        <p><strong>框架授权，节点实控。</strong>搭好框架就敢放手让团队长，但里程碑和范围红线我自己盯。</p>
+        <div class="principle-body">
+          <div class="principle-title">框架授权，节点实控</div>
+          <div class="principle-desc">搭好框架就敢放手让团队成长，但里程碑和范围红线我一定自己盯。20人的团队，离职率8%，靠的不是管得多细，是该放的放、该收的收。</div>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="p-num mono">04</span>
+        <div class="principle-body">
+          <div class="principle-title">AI重画流程，不是加buff</div>
+          <div class="principle-desc">AI不是给PM省力气的工具，是能把整条流水线重画一遍的机会。友时把日均1-2套人工出图改成8倍自动化，不是"更快了"，是"原来的流程不存在了"。</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SELECTED PROJECTS -->
-  <section class="section" id="projects" aria-label="代表项目">
-    <h2 class="sec-title">代表项目</h2>
+  <!-- SELECTED CASES -->
+  <section class="section" id="projects" aria-label="精选案例">
+    <h2 class="sec-title">精选案例</h2>
 
-    <details class="proj" id="proj1">
-      <summary class="proj-head">
-        <div>
-          <div class="proj-cat mono">医疗SaaS</div>
-          <div class="proj-title">公立医疗SaaS · 互联网医院规模化交付</div>
-        </div>
-        <span class="proj-toggle">+</span>
-      </summary>
-      <div class="proj-body"><div class="proj-body-inner"><div class="proj-body-content">
-        <div class="proj-stats">
-          <div class="ps"><div class="ps-num">500<em>+</em></div><div class="ps-label">机构交付</div></div>
-          <div class="ps"><div class="ps-num">95<em>%+</em></div><div class="ps-label">准时率</div></div>
-          <div class="ps"><div class="ps-num">12</div><div class="ps-label">标准SOP</div></div>
-        </div>
-        <div class="proj-detail">
-          <p>接手时500多家民营机构加32家公立医院要交互联网医院，公司没有现成流程，销售还在过度承诺。我没有闭门写SOP，先挑20家真实机构跑起来，边跑边沉淀。机构按钻石、铂金、黄金分层，配套不同交付标准，又建了时间、成本、质量、满意度四维监控模型。深圳三院那次客户投诉后，我把<strong>"范围说明前置"定成了铁律</strong>。9个月全部跑通，准时率95%+，沉淀12项SOP，人均效能+50%。</p>
-        </div>
-      </div></div></div>
-    </details>
+    <button class="proj-card" onclick="openModal('proj1')">
+      <div class="proj-cat mono">医疗SaaS</div>
+      <div class="proj-card-title">公立医疗SaaS · 互联网医院规模化交付</div>
+      <div class="proj-summary">从0搭交付体系，9个月撑住500+机构，准时率95%+</div>
+      <span class="proj-cta">查看完整故事 →</span>
+    </button>
 
-    <details class="proj" id="proj2">
-      <summary class="proj-head">
-        <div>
-          <div class="proj-cat mono">AIGC · 电商</div>
-          <div class="proj-title">AIGC驱动 · 电商运营提效</div>
-        </div>
-        <span class="proj-toggle">+</span>
-      </summary>
-      <div class="proj-body"><div class="proj-body-inner"><div class="proj-body-content">
-        <div class="proj-stats">
-          <div class="ps"><div class="ps-num">8<em>x</em></div><div class="ps-label">产能提升</div></div>
-          <div class="ps"><div class="ps-num">70<em>%+</em></div><div class="ps-label">周期缩短</div></div>
-          <div class="ps"><div class="ps-num">10<em>%</em></div><div class="ps-label">转化峰值</div></div>
-        </div>
-        <div class="proj-detail">
-          <p>之前设计师一天出1-2套图，往复修改四成是无效功。我搭了ComfyUI自动化工作流加属性标签体系，用批量生产替代人工，再用A/B测试不断优化高转化视觉。产能提升8倍，上架周期缩短70%+，转化率峰值10%。后续我调动多个AI agent，从0到1搭了OZONOPS跨境电商SaaS。</p>
-        </div>
-      </div></div></div>
-    </details>
+    <button class="proj-card" onclick="openModal('proj2')">
+      <div class="proj-cat mono">AIGC · 电商</div>
+      <div class="proj-card-title">AIGC驱动 · 电商运营提效</div>
+      <div class="proj-summary">用AI重画出图流水线，产能8倍，上架周期砍70%+</div>
+      <span class="proj-cta">查看完整故事 →</span>
+    </button>
   </section>
 
   <!-- EXPERIENCE -->
@@ -544,7 +487,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2024 - 至今</div>
           <div class="exp-company">深圳友时文化有限公司</div>
           <div class="exp-role">项目经理 / 交付负责人</div>
-          <div class="exp-result">我用AIGC工作流重构了视觉生产，<strong>产能提升8倍</strong>；从0到1搭了OZONOPS跨境SaaS。</div>
+          <div class="exp-result">我用AIGC工作流重构了视觉生产，从0到1搭了OZONOPS跨境SaaS。</div>
         </div>
       </div>
       <div class="exp">
@@ -553,7 +496,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2020 - 2024</div>
           <div class="exp-company">深圳宁远科技股份有限公司</div>
           <div class="exp-role">项目交付经理 / 深圳区域负责人</div>
-          <div class="exp-result">我从0搭了20人团队和交付体系，<strong>9个月跑通500+机构</strong>。</div>
+          <div class="exp-result">我从0搭了20人团队和交付体系，<strong>建立了可复制的互联网医院交付标准</strong>。</div>
         </div>
       </div>
       <div class="exp">
@@ -589,13 +532,11 @@ details[open] .proj-body{grid-template-rows:1fr}
   <!-- TOOLS -->
   <section class="section" id="tools" aria-label="工具技能">
     <h2 class="sec-title">工具与技能</h2>
-    <!-- Mobile: horizontal pills -->
     <div class="tools-scroll">
       <span class="tool-pill">飞书</span><span class="tool-pill">Jira</span><span class="tool-pill">禅道</span><span class="tool-pill">TAPD</span>
       <span class="tool-pill">Axure</span><span class="tool-pill">墨刀</span><span class="tool-pill">Xmind</span><span class="tool-pill">Photoshop</span>
       <span class="tool-pill">ComfyUI</span><span class="tool-pill">GitHub</span><span class="tool-pill">SQL</span>
     </div>
-    <!-- PC: card matrix -->
     <div class="tools-cards">
       <div class="tool-card">
         <div class="tool-card-title">
@@ -628,10 +569,22 @@ details[open] .proj-body{grid-template-rows:1fr}
     </div>
   </section>
 
-  <!-- CONTACT (PC + anchor for mobile) -->
+  <!-- OUTSIDE WORK -->
+  <section class="section" id="outside" aria-label="工作之外">
+    <h2 class="sec-title">工作之外</h2>
+    <div class="outside-content">
+      <div class="outside-item"><span class="outside-label">最近在折腾：</span>OZONOPS 跨境电商 SaaS，用多个 AI agent 从0跑通俄罗斯市场的半精铺模式。</div>
+      <div class="outside-item"><span class="outside-label">最近在学：</span>ComfyUI 工作流设计、AI Agent 编排、俄语（为了 OZON 平台）。</div>
+      <div class="outside-tags">
+        <span>10年交付老兵</span><span>AI 工具控</span><span>跨境电商创业者</span><span>深圳本地人</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section class="bottom-contact" id="contact-section">
     <h3>欢迎沟通</h3>
-    <p>如果你在找能扛复杂交付、能搭体系、能带团队的PM</p>
+    <p>如果你在找一个能扛事、也能搭体系的PM，<br>或者就是想聊聊交付和AI，欢迎加我微信。</p>
     <div class="qr-wrap"><img src="assets/qrcode.jpg" alt="微信二维码" loading="lazy" width="110" height="110"></div>
     <div class="wechat-id mono">DoubleGreens</div>
     <button class="btn-contact-bottom" aria-label="复制微信号" onclick="copyWechat(this)">
@@ -647,6 +600,78 @@ details[open] .proj-body{grid-template-rows:1fr}
   <span class="mono">SENIOR PM</span>
 </footer>
 
+</div>
+
+<!-- ============ MODALS ============ -->
+<div class="modal-overlay" id="modal-proj1" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()" role="dialog" aria-modal="true" aria-label="宁远医疗案例">
+    <button class="modal-close" onclick="closeModal()" aria-label="关闭">✕</button>
+    <div class="modal-header">
+      <div class="modal-cat mono">医疗SaaS</div>
+      <h3 class="modal-title">从0搭互联网医院交付体系</h3>
+    </div>
+    <div class="modal-body">
+      <div class="star-section">
+        <h4 class="star-label">📍 情境</h4>
+        <p>入职宁远第一周，销售甩过来一份合同：深圳三院的互联网医院，合同写"两周上线"。交付部没人做过互联网医院，研发排期排到三个月后，老板说"你看着办"。公司没有任何现成流程，之前的交付靠老师傅带人，人走了流程就没了。更麻烦的是，销售还在不断签新单，每一家的需求都不一样。</p>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">🎯 任务</h4>
+        <p>需要在两周内让三院上线，同时建立一套可复制的交付流程，让后续500家机构能按同一套标准跑。难点是：没有先例、没有SOP、研发资源排不上、销售还在过度承诺。如果三院搞砸了，后面的单全是雷。</p>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">⚡ 行动</h4>
+        <p>我没有闭门写SOP。先挑了深圳宝安一家20张床的小诊所跑现场，每天在诊所待一整天，看护士怎么用系统、卡在哪、哪些步骤可以省。第一周就崩了——诊所电脑是XP系统，对接插件装不上，主任拍着桌子说"你们到底能不能做"。那段时间每天回酒店改对接文档到凌晨两点，第二天去现场陪着护士一步步试。</p>
+        <p>三院那次更狠。销售承诺了合同外的"拍医生形象照"，科主任直接打电话来骂。骂完我反而清醒了：范围不前置，后面全是坑。我花三天写了第一版范围说明书，要求销售签完字再交付，不签的单不接。老板一开始不同意，说"销售签单不容易"，我拿三院的投诉记录跟他谈，最后他拍板说"按你说的来"。</p>
+        <p>一个月后，第一版SOP是用踩坑记录堆出来的——不是我设计的，是现场跑出来的。机构按钻石、铂金、黄金分层，配套不同交付标准，又建了时间、成本、质量、满意度四维监控模型。</p>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">📊 结果</h4>
+        <p>九个月后，那本从踩坑里长出来的SOP撑住了<strong>500+机构</strong>交付，准时率<strong>95%+</strong>，沉淀<strong>12项</strong>标准SOP，人均效能+50%。固生堂的年框续约翻了一倍多。我带的20人交付团队，新人从入职到独立扛项目只需要2周，离职率8%（行业平均15%）。</p>
+        <div class="star-insight">最大的收获是：好流程不是设计出来的，是跑出来的。先让真实项目跑起来，方法自然会长出来。闭门写的SOP，再完美也没用。</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-tags mono">#交付体系 #SaaS #从0到1 #范围管理</span>
+      <button class="modal-next" onclick="switchModal('proj2')">下一个案例 →</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-proj2" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()" role="dialog" aria-modal="true" aria-label="友时AIGC案例">
+    <button class="modal-close" onclick="closeModal()" aria-label="关闭">✕</button>
+    <div class="modal-header">
+      <div class="modal-cat mono">AIGC · 电商</div>
+      <h3 class="modal-title">用 AI 重画电商出图流水线</h3>
+    </div>
+    <div class="modal-body">
+      <div class="star-section">
+        <h4 class="star-label">📍 情境</h4>
+        <p>友时的电商客户出图全靠设计师手动，一天1-2套图，改到第四版运营还在说"感觉不对"。客户嫌慢，设计师嫌烦，运营夹在中间两头受气。公司试过招更多设计师，但成本上去了，质量反而不稳定——每个设计师的风格不一样，客户要的是"和上一套一样但又不一样"。</p>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">🎯 任务</h4>
+        <p>需要把出图效率提上去，同时保证质量稳定。目标是：产能至少翻3倍，上架周期从7天压到2天以内。难点是：AI出图质量不稳定，运营不会用工具，设计师有抵触情绪（怕被替代）。</p>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">⚡ 行动</h4>
+        <p>我没有直接让设计师用AI，而是自己先跑了一个月 ComfyUI。把电商主图的流程拆成12个节点，每个节点对应一个可调整的参数——底色、光影、角度、材质、场景风格。然后搭了属性标签体系：产品颜色、材质、场景、风格，运营选标签就能出图，不需要懂 prompt。</p>
+        <p>设计师的抵触是最大的问题。我没有说"AI替代你们"，而是说"你们从画图变成审图+调优"。先让最愿意尝试的一个设计师试，她用工作流一天出了20套图，质量比手动的还好。其他设计师看到结果，主动来找我学。</p>
+        <p>运营那边更简单。我做了一个标签选择界面，他们选完标签点"生成"，半小时出一批素材，挑图说"这个比人工的好"。后来又加了A/B测试，把高转化的视觉风格沉淀成模板。</p>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">📊 结果</h4>
+        <p>产能拉到<strong>8倍</strong>，上架周期砍了<strong>70%+</strong>，转化率峰值<strong>10%</strong>。设计师从"画图工"变成"AI工作流调优师"，离职率反而降了——因为不用再做重复劳动了。</p>
+        <p>后来用同样的思路搭了 OZONOPS，多个 AI agent 从0跑通了跨境电商 SaaS。</p>
+        <div class="star-insight">最大的收获是：AI不是给人加buff，是能把整条流水线重画一遍。原来的流程不存在了，新的流程需要重新设计——这才是PM在AI时代的价值。</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-tags mono">#AIGC #ComfyUI #流程重构 #跨境电商</span>
+      <button class="modal-next" onclick="switchModal('proj1')">← 上一个案例</button>
+    </div>
+  </div>
 </div>
 
 <!-- Mobile fixed contact bar -->
@@ -673,26 +698,13 @@ details[open] .proj-body{grid-template-rows:1fr}
     });
   });
 
-  // Scroll progress bar (PC only via CSS)
+  // Scroll progress bar
   var bar=document.getElementById('progressBar');
   function updateProgress(){
     var h=document.documentElement.scrollHeight-window.innerHeight;
     bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
   }
   window.addEventListener('scroll',updateProgress,{passive:true});
-
-  // PC: open first project by default (with animation)
-  if(window.innerWidth>=768){
-    var p1=document.getElementById('proj1');
-    if(p1){requestAnimationFrame(function(){requestAnimationFrame(function(){p1.open=true;})});}
-  }
-
-  // Mobile: caps 2-4 have short stories, no collapse needed
-  if(window.innerWidth<768){
-    document.querySelectorAll('.cap').forEach(function(c,i){
-      if(i>0)c.classList.add('no-collapse');
-    });
-  }
 
   // PC: scrollspy nav
   if(window.innerWidth>=768){
@@ -715,6 +727,31 @@ details[open] .proj-body{grid-template-rows:1fr}
   }
 })();
 
+// ===== MODAL =====
+var lastFocused=null;
+function openModal(id){
+  var modal=document.getElementById('modal-'+id);
+  if(!modal)return;
+  lastFocused=document.activeElement;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  var closeBtn=modal.querySelector('.modal-close');
+  if(closeBtn)setTimeout(function(){closeBtn.focus()},50);
+}
+function closeModal(e){
+  if(e&&e.target!==e.currentTarget)return;
+  document.querySelectorAll('.modal-overlay.open').forEach(function(m){m.classList.remove('open')});
+  document.body.style.overflow='';
+  if(lastFocused){lastFocused.focus();lastFocused=null;}
+}
+function switchModal(id){
+  document.querySelectorAll('.modal-overlay.open').forEach(function(m){m.classList.remove('open')});
+  setTimeout(function(){openModal(id)},150);
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeModal();
+});
+
 function showToast(msg){
   var t=document.getElementById('toast');
   t.textContent=msg;
@@ -728,12 +765,8 @@ function copyWechat(btn){
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(id).then(function(){
       showToast('已复制微信号：'+id);
-    }).catch(function(){
-      showToast('微信号：'+id);
-    });
-  }else{
-    showToast('微信号：'+id);
-  }
+    }).catch(function(){showToast('微信号：'+id);});
+  }else{showToast('微信号：'+id);}
 }
 
 function copyEmail(btn){
@@ -741,12 +774,8 @@ function copyEmail(btn){
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(email).then(function(){
       showToast('已复制邮箱：'+email);
-    }).catch(function(){
-      showToast('邮箱：'+email);
-    });
-  }else{
-    showToast('邮箱：'+email);
-  }
+    }).catch(function(){showToast('邮箱：'+email);});
+  }else{showToast('邮箱：'+email);}
 }
 </script>
 </body>
