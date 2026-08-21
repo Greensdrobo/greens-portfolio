@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Greens · 资深项目经理</title>
 <meta name="description" content="10年复杂项目交付经验，曾任腾讯。规模化交付体系搭建、团队0-1管理、AI流程重构。">
+<link rel="preload" href="assets/fonts/Outfit-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* ============ FONTS ============ */
 @font-face{font-family:'Outfit';src:url('assets/fonts/Outfit.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'Outfit';src:url('assets/fonts/Outfit-600.woff2') format('woff2');font-weight:600;font-display:swap}
 @font-face{font-family:'Outfit';src:url('assets/fonts/Outfit-700.woff2') format('woff2');font-weight:700;font-display:swap}
 @font-face{font-family:'Outfit';src:url('assets/fonts/Outfit-800.woff2') format('woff2');font-weight:800;font-display:swap}
 @font-face{font-family:'Outfit';src:url('assets/fonts/Outfit-900.woff2') format('woff2');font-weight:900;font-display:swap}
@@ -16,11 +17,11 @@
 
 /* ============ TOKENS ============ */
 :root{
-  --bg:#FAFAF8;--ink:#111;--sec:#6B6B6B;--bdr:#E2DFD8;--acc:#C0392B;
-  --card:#fff;--tag-bg:#F0EDE6;--hover:#F5F2EC;
+  --bg:#FAFAF8;--ink:#1C1C1E;--sec:#7A7A7A;--bdr:#EDEDED;--acc:#C0392B;
+  --card:#fff;--tag-bg:#F4F2EE;--hover:#F5F2EC;
 }
 @media(prefers-color-scheme:dark){
-  :root{--bg:#0E0E0E;--ink:#F0EEE9;--sec:#999;--bdr:#2A2A2A;--acc:#E85D4E;--card:#161616;--tag-bg:#1F1F1F;--hover:#1A1A1A}
+  :root{--bg:#0E0E0E;--ink:#E8E6E1;--sec:#888;--bdr:#262626;--acc:#E85D4E;--card:#161616;--tag-bg:#1A1A1A;--hover:#1F1F1F}
 }
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -31,27 +32,44 @@ a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .mono{font-family:'JetBrains Mono',monospace}
 
+/* Focus ring */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
 /* ============ LAYOUT ============ */
 .page{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0}
 @media(min-width:768px){
   .page{grid-template-columns:300px 1fr;gap:0;min-height:100vh}
 }
+@media(min-width:768px) and (max-width:1023px){
+  .page{grid-template-columns:240px 1fr}
+  .sidebar{padding:32px 20px}
+  .main{padding:40px 28px}
+  .sidebar-name{font-size:32px}
+  .sidebar-photo{margin-bottom:16px}
+}
+@media(min-width:1200px){
+  .page{max-width:1080px}
+}
 
 /* ============ SIDEBAR ============ */
 .sidebar{padding:32px 24px;border-bottom:1px solid var(--bdr)}
 @media(min-width:768px){
-  .sidebar{border-bottom:none;border-right:1px solid var(--bdr);position:sticky;top:0;height:100vh;overflow-y:auto;padding:40px 28px;display:flex;flex-direction:column}
+  .sidebar{border-bottom:none;border-right:1px solid var(--bdr);position:sticky;top:0;height:100vh;overflow-y:auto;padding:44px 28px;display:flex;flex-direction:column}
 }
 .sidebar-photo{width:100%;aspect-ratio:1/1.05;overflow:hidden;margin-bottom:20px;background:var(--tag-bg)}
 .sidebar-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .sidebar-name{font-size:36px;font-weight:900;letter-spacing:2px;line-height:1;margin-bottom:6px}
 @media(min-width:768px){.sidebar-name{font-size:40px}}
 .sidebar-title{font-size:14px;font-weight:700;color:var(--sec);margin-bottom:4px}
-.sidebar-tagline{font-size:13px;color:var(--sec);margin-bottom:20px;line-height:1.5}
+.sidebar-tagline{font-size:13px;color:var(--sec);margin-bottom:16px;line-height:1.5}
 .sidebar-tagline strong{color:var(--ink);font-weight:700}
 
+/* Education */
+.sidebar-edu{font-size:12px;color:var(--sec);margin-bottom:4px;display:flex;gap:8px}
+.sidebar-edu .label{color:#999;min-width:32px;flex-shrink:0}
+
 /* Contact in sidebar */
-.sidebar-contact{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.sidebar-contact{display:flex;flex-direction:column;gap:8px;margin:16px 0 16px}
 .contact-row{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600}
 .contact-row svg{width:14px;height:14px;flex-shrink:0;stroke:var(--sec);fill:none;stroke-width:2}
 .contact-row .label{color:var(--sec);min-width:36px}
@@ -60,52 +78,45 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .btn-contact:active{transform:translateY(0)}
 .btn-contact svg{width:14px;height:14px;stroke:var(--bg);fill:none;stroke-width:2}
 
-/* Sidebar stats */
+/* Sidebar stats - 2 columns, only 2 items */
 .sidebar-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--bdr);padding-top:20px;margin-top:auto}
-@media(max-width:767px){.sidebar-stats{margin-top:0}}
+@media(max-width:767px){.sidebar-stats{display:none}}
 .ss{padding:10px 0}
-.ss:nth-child(odd){padding-right:12px;border-right:1px solid var(--bdr)}
-.ss:nth-child(even){padding-left:12px}
-.ss:nth-child(1),.ss:nth-child(2){border-bottom:1px solid var(--bdr);padding-bottom:10px}
-.ss:nth-child(3),.ss:nth-child(4){padding-top:10px}
+.ss:first-child{padding-right:12px;border-right:1px solid var(--bdr)}
+.ss:last-child{padding-left:12px}
 .ss-num{font-size:24px;font-weight:900;line-height:1;letter-spacing:-1px}
 .ss-num em{font-style:normal;font-size:14px;color:var(--acc)}
 .ss-label{font-size:10px;font-weight:600;color:var(--sec);margin-top:4px;line-height:1.3}
 
 /* ============ MAIN ============ */
 .main{padding:32px 24px 48px}
-@media(min-width:768px){.main{padding:48px 40px}}
+@media(min-width:768px){.main{padding:56px 48px}}
 
-.section{margin-bottom:44px}
+.section{margin-bottom:52px}
 .section:last-child{margin-bottom:0}
-.sec-title{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--acc);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--bdr)}
+.sec-title{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--sec);margin-bottom:24px;padding-bottom:10px}
+.sec-title.first{border-bottom:1px solid var(--bdr)}
 
 /* ============ CAPABILITY CARDS ============ */
-.cap{padding:20px 0;border-bottom:1px solid var(--bdr)}
-.cap:last-child{border-bottom:none}
-.cap:first-child{padding-top:0}
-.cap-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-.cap-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--sec);font-weight:500}
-.cap-title{font-size:18px;font-weight:800;line-height:1.3}
-.cap-impact{font-size:13px;color:var(--sec);margin-bottom:12px;line-height:1.6}
-.cap-impact strong{color:var(--ink);font-weight:700}
-.cap-evidence{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.cap-evidence span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:4px 10px;background:var(--tag-bg);letter-spacing:.2px}
-.cap-evidence span.hot{background:var(--ink);color:var(--bg)}
+.cap{padding:0 0 8px;margin-bottom:36px;opacity:0;transform:translateY(24px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.cap.visible{opacity:1;transform:translateY(0)}
+.cap:last-child{margin-bottom:0}
+.cap-title{font-size:18px;font-weight:800;line-height:1.3;margin-bottom:10px}
 .cap-story{font-size:13px;line-height:1.8;color:var(--sec)}
 .cap-story strong{color:var(--ink);font-weight:700}
+@media(prefers-reduced-motion:reduce){.cap{opacity:1;transform:none;transition:none}}
 
 /* ============ PROJECTS ============ */
-.proj{border:1px solid var(--bdr);margin-bottom:16px;transition:border-color .2s}
-.proj:hover{border-color:var(--ink)}
-.proj-head{padding:18px 18px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;width:100%;text-align:left;transition:background .2s}
+.proj{margin-bottom:20px;transition:background .2s}
+.proj-head{padding:20px 20px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;width:100%;text-align:left;transition:background .2s}
 .proj-head:hover{background:var(--hover)}
 .proj-head::-webkit-details-marker{display:none}
 .proj-title{font-size:17px;font-weight:800;line-height:1.3}
-.proj-cat{font-size:10px;font-weight:700;color:var(--acc);letter-spacing:1px;margin-bottom:6px}
+.proj-cat{font-size:10px;font-weight:700;color:var(--sec);letter-spacing:1px;margin-bottom:6px}
 .proj-toggle{font-size:18px;font-weight:400;color:var(--sec);transition:transform .25s;flex-shrink:0;width:20px;text-align:center;line-height:1}
 details[open] .proj-toggle{transform:rotate(45deg)}
-.proj-body{padding:0 18px 18px;border-top:1px solid var(--bdr)}
+.proj-body{padding:0 20px 20px;border-top:1px solid var(--bdr);opacity:0;transition:opacity .25s ease}
+details[open] .proj-body{opacity:1}
 .proj-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:16px 0;border-bottom:1px solid var(--bdr)}
 .ps{text-align:center;padding:0 8px;border-right:1px solid var(--bdr)}
 .ps:last-child{border-right:none}
@@ -114,42 +125,18 @@ details[open] .proj-toggle{transform:rotate(45deg)}
 .ps-label{font-size:9px;font-weight:600;color:var(--sec);margin-top:4px}
 .proj-detail{padding-top:14px;font-size:13px;line-height:1.8;color:var(--sec)}
 .proj-detail strong{color:var(--ink);font-weight:700}
-.proj-detail p{margin-bottom:10px}
+.proj-detail p{margin-bottom:8px}
 .proj-detail p:last-child{margin-bottom:0}
-.proj-visual{padding:14px 0;border-bottom:1px solid var(--bdr);margin-bottom:14px}
-.pv-label{font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--sec);margin-bottom:10px}
-.dot-grid{display:grid;grid-template-columns:repeat(25,1fr);gap:3px;margin-bottom:8px}
-.dot{width:5px;height:5px;background:var(--bdr)}
-.dot.filled{background:var(--ink)}
-.dot.accent{background:var(--acc)}
-.dot-legend{display:flex;gap:14px;font-size:9px;font-weight:600;color:var(--sec)}
-.dot-legend i{display:inline-block;width:7px;height:7px;margin-right:4px;vertical-align:middle}
-.dot-legend .l1 i{background:var(--ink)}
-.dot-legend .l2 i{background:var(--acc)}
-.flow{display:flex;align-items:center;gap:0}
-.flow-node{text-align:center;flex:1}
-.flow-box{border:1px solid var(--bdr);padding:8px 4px;font-size:9px;font-weight:700;line-height:1.3}
-.flow-box.acc{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.flow-box.big{font-size:12px;padding:10px 4px}
-.flow-arrow{font-size:14px;font-weight:700;padding:0 2px;flex-shrink:0;color:var(--sec)}
 
 /* ============ EXPERIENCE TIMELINE ============ */
-.exp{padding:14px 0;border-bottom:1px solid var(--bdr);display:grid;grid-template-columns:80px 1fr;gap:12px}
+.exp{padding:16px 0;border-bottom:1px solid var(--bdr);display:grid;grid-template-columns:80px 1fr;gap:12px}
 .exp:last-child{border-bottom:none}
 .exp:first-child{padding-top:0}
 .exp-year{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--sec);padding-top:2px}
-.exp-main{}
 .exp-company{font-size:14px;font-weight:800;line-height:1.3}
 .exp-role{font-size:12px;color:var(--sec);margin:2px 0 4px}
 .exp-result{font-size:12px;color:var(--sec);line-height:1.5}
 .exp-result strong{color:var(--ink);font-weight:700}
-
-/* ============ TOOLS ============ */
-.tools-grid{display:flex;flex-wrap:wrap;gap:6px}
-.tools-grid span{font-size:11px;font-weight:600;padding:5px 10px;border:1px solid var(--bdr);transition:border-color .2s,background .2s}
-.tools-grid span:hover{border-color:var(--ink);background:var(--hover)}
-.tools-cat-label{font-size:10px;font-weight:700;color:var(--sec);letter-spacing:1px;margin:12px 0 6px}
-.tools-cat-label:first-child{margin-top:0}
 
 /* ============ BOTTOM CONTACT ============ */
 .bottom-contact{padding:32px 0;text-align:center;border-top:1px solid var(--bdr)}
@@ -158,18 +145,22 @@ details[open] .proj-toggle{transform:rotate(45deg)}
 .qr-wrap{display:inline-block;padding:12px;border:1px solid var(--bdr);margin-bottom:14px;background:var(--card)}
 .qr-wrap img{width:120px;height:120px}
 .bottom-contact .wechat-id{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;letter-spacing:1px;margin-bottom:14px}
-.btn-contact-bottom{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 32px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:700;transition:background .2s,transform .2s}
+.btn-contact-bottom{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 32px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:700;transition:background .2s,transform .2s;border-radius:0}
 .btn-contact-bottom:hover{background:var(--acc);transform:translateY(-1px)}
 
 /* ============ FOOTER ============ */
 .footer{padding:20px 24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;font-size:10px;color:var(--sec);font-weight:600;letter-spacing:.5px}
-@media(min-width:768px){.footer{grid-column:2;padding:20px 40px}}
+@media(min-width:768px){.footer{grid-column:2;padding:20px 48px}}
 
-/* ============ DARK MODE ADJUSTMENTS ============ */
+/* ============ DARK MODE ============ */
 @media(prefers-color-scheme:dark){
   .sidebar-photo{background:#222}
-  .dot{background:#333}
-  .dot.filled{background:#888}
+}
+
+/* ============ MOBILE ============ */
+@media(max-width:767px){
+  .sidebar-photo{max-width:140px;margin:0 auto 16px}
+  .sidebar{text-align:left}
 }
 
 /* ============ PRINT ============ */
@@ -180,42 +171,49 @@ details[open] .proj-toggle{transform:rotate(45deg)}
   .sidebar{position:static;height:auto;border-right:none;border-bottom:2px solid #000;padding:0 0 16px;display:block}
   .sidebar-photo{width:100px;height:120px;float:right;margin:0 0 12px 16px}
   .sidebar-name{font-size:28px}
+  .sidebar-stats{display:grid}
   .btn-contact,.bottom-contact .btn-contact-bottom{display:none}
   .main{padding:16px 0}
   .section{margin-bottom:20px;page-break-inside:avoid}
   .sec-title{font-size:9px;margin-bottom:10px}
-  .cap{padding:10px 0}
+  .cap{padding:8px 0;opacity:1;transform:none}
   .cap-title{font-size:14px}
   .cap-story{font-size:11px}
   .proj{break-inside:avoid}
-  .proj-body{display:none}
-  details[open] .proj-body{display:block}
+  .proj-body{display:block !important;opacity:1}
+  .proj-toggle{display:none}
   .exp{grid-template-columns:70px 1fr;padding:8px 0}
   .footer{display:none}
   .bottom-contact{padding:16px 0;text-align:left}
   .qr-wrap{display:none}
-  a[href]:after{content:" (" attr(href) ")";font-size:9px;color:#666}
 }
 </style>
 </head>
 <body>
-<a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='8px';this.style.top='8px';this.style.zIndex='99';this.style.background='#000';this.style.color:'#fff';this.style.padding='8px'" onblur="this.style.left='-9999px'">跳到主要内容</a>
+<a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='8px';this.style.top='8px';this.style.zIndex='99';this.style.background='#000';this.style.color='#fff';this.style.padding='8px'" onblur="this.style.left='-9999px'">跳到主要内容</a>
 
 <div class="page">
 
 <!-- ========== SIDEBAR ========== -->
 <aside class="sidebar">
   <div class="sidebar-photo">
-    <img src="assets/hero.jpg" alt="Greens 职业照" fetchpriority="high">
+    <img src="assets/hero.webp" alt="Greens 职业照" fetchpriority="high" width="600" height="600">
   </div>
   <h1 class="sidebar-name">Greens</h1>
   <div class="sidebar-title">资深项目经理 / Senior PM</div>
   <div class="sidebar-tagline"><strong>10年</strong>复杂项目交付经验，曾任<strong>腾讯</strong>。擅长规模化交付体系搭建、团队0-1组建、AI流程重构。</div>
 
+  <div class="sidebar-edu"><span class="label">学历</span><span>自考本科 · 商务秘书</span></div>
+  <div class="sidebar-edu"><span class="label">认证</span><span>PMP 项目管理专业人士</span></div>
+
   <div class="sidebar-contact">
     <div class="contact-row">
       <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       <span class="label">微信</span><span class="mono">DoubleGreens</span>
+    </div>
+    <div class="contact-row">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span class="label">邮箱</span><span class="mono">greens.pm@outlook.com</span>
     </div>
   </div>
   <a href="#contact" class="btn-contact">
@@ -226,8 +224,6 @@ details[open] .proj-toggle{transform:rotate(45deg)}
   <div class="sidebar-stats">
     <div class="ss"><div class="ss-num">10<em>+</em></div><div class="ss-label">年项目交付</div></div>
     <div class="ss"><div class="ss-num">500<em>+</em></div><div class="ss-label">机构规模化交付</div></div>
-    <div class="ss"><div class="ss-num">20</div><div class="ss-label">人团队0-1组建</div></div>
-    <div class="ss"><div class="ss-num">8<em>x</em></div><div class="ss-label">AI产能提升</div></div>
   </div>
 </aside>
 
@@ -236,67 +232,26 @@ details[open] .proj-toggle{transform:rotate(45deg)}
 
   <!-- CORE CAPABILITIES -->
   <section class="section" aria-label="核心能力">
-    <h2 class="sec-title">核心能力</h2>
+    <h2 class="sec-title first">核心能力</h2>
 
     <div class="cap">
-      <div class="cap-head">
-        <span class="cap-num mono">01</span>
-        <h3 class="cap-title">规模化交付体系搭建</h3>
-      </div>
-      <p class="cap-impact">从0到1搭建SaaS交付体系，让<strong>500+机构</strong>的非标交付变成可复制流程，<strong>9个月全部跑通</strong>，团队不再靠人救火。</p>
-      <div class="cap-evidence">
-        <span class="hot">500+机构</span>
-        <span>12项SOP</span>
-        <span>准时率95%+</span>
-        <span>人均效能+50%</span>
-        <span>固生堂续约+123%</span>
-      </div>
-      <p class="cap-story">接手宁远科技时，公司内部没人知道"互联网医院到底怎么交"。我没有闭门设计完美流程，而是<strong>先挑一批机构跑通，再回头沉淀SOP</strong>。机构按钻石/铂金/黄金分层，配套四维监控模型（时间/成本/质量/满意度），延期提前两周暴露。深圳第三人民医院事件（销售过度承诺、科主任强烈反应）让我认死理：<strong>范围必须前置说清楚</strong>，不然再牛的体系也救不了预期错位。</p>
+      <h3 class="cap-title">规模化交付体系搭建</h3>
+      <p class="cap-story">入职第一周，销售签了深圳三院的互联网医院，合同写"两周上线"，但交付部没人做过，研发排期排到三个月后。两条路：花三个月闭门写SOP再推，或者先让机构跑起来边跑边改。我赌了后者，挑<strong>5家最配合的民营诊所</strong>先跑现场，每天晚上回酒店复盘当天的坑。三院那次销售过度承诺、<strong>科主任直接打电话来骂</strong>，之后我把"范围说明书签字确认"写成了交付第一步，没签的单不交。<strong>9个月后500家机构跑通，准时率95%+，沉淀12项SOP，固生堂年框续约逆势增长123%。</strong></p>
     </div>
 
     <div class="cap">
-      <div class="cap-head">
-        <span class="cap-num mono">02</span>
-        <h3 class="cap-title">团队0-1组建与管理</h3>
-      </div>
-      <p class="cap-impact">从0搭建<strong>20人交付团队</strong>，离职率<strong>8%</strong>（行业平均15%），输出<strong>15名复合人才</strong>，团队稳定直接支撑交付质量和客户续约。</p>
-      <div class="cap-evidence">
-        <span class="hot">20人团队</span>
-        <span>离职率8%</span>
-        <span>输出15骨干</span>
-        <span>新人培训2周</span>
-      </div>
-      <p class="cap-story">搭好框架就敢放手让团队成长，但里程碑和范围红线我一定自己盯。框架性授权加双通道培养加分享会复盘，<strong>把"个人英雄"变成"组织能力"</strong>。</p>
+      <h3 class="cap-title">团队0-1组建与管理</h3>
+      <p class="cap-story">从0搭建<strong>20人交付团队</strong>，离职率<strong>8%</strong>（行业平均15%）。做法是框架性授权加双通道培养，新人培训从1个月压到2周，输出<strong>15名</strong>能独立扛项目的骨干。团队稳定直接支撑了交付质量和客户续约，固生堂续约+123%就是证据。</p>
     </div>
 
     <div class="cap">
-      <div class="cap-head">
-        <span class="cap-num mono">03</span>
-        <h3 class="cap-title">复杂项目与干系人治理</h3>
-      </div>
-      <p class="cap-impact">管过<strong>亿级用户平台</strong>的资源排期，也管过跨大区多品牌异业联动，多项目并行<strong>0延期</strong>，能在资源不确定时先验证再立项。</p>
-      <div class="cap-evidence">
-        <span class="hot">DAU 1300W</span>
-        <span>多项目0延期</span>
-        <span>转化6%到16%</span>
-        <span>单月拉新20W+</span>
-      </div>
-      <p class="cap-story">在腾讯管天天酷跑、王者荣耀等头部产品的资源排期时发现：靠脑子记、靠微信吼根本撑不住，于是自己搭了<strong>资源日历和RMF用户分层模型</strong>。顺丰同城时，研发排期长、业务方催"赶紧上"，我顶着压力<strong>先用第三方插件低成本试水，数据出来再立项</strong>，最终固化成常驻活动板块。管预期比做事情更难。</p>
+      <h3 class="cap-title">AI驱动流程重构</h3>
+      <p class="cap-story">友时文化视觉生产全靠人，日均1-2套，往复修改40%是无效功。牵头搭<strong>ComfyUI自动化工作流</strong>加属性标签体系，产能拉到<strong>8倍</strong>，上架周期缩短<strong>70%+</strong>，转化率峰值<strong>10%</strong>。后续用多个AI agent从0搭了OZONOPS跨境电商SaaS，从认知到执行全链路跑通。</p>
     </div>
 
     <div class="cap">
-      <div class="cap-head">
-        <span class="cap-num mono">04</span>
-        <h3 class="cap-title">AI驱动流程重构</h3>
-      </div>
-      <p class="cap-impact">用ComfyUI自动化工作流重构视觉生产，产能从日均1-2套提升到<strong>8倍</strong>，上架周期缩短<strong>70%+</strong>，转化率峰值<strong>10%</strong>。AI不是加buff，是重画流水线。</p>
-      <div class="cap-evidence">
-        <span class="hot">产能8x</span>
-        <span>周期-70%+</span>
-        <span>转化峰值10%</span>
-        <span>OZONOPS SaaS</span>
-      </div>
-      <p class="cap-story">友时文化视觉生产全靠人，往复修改40%+是无效功。我牵头搭了ComfyUI自动化工作流加属性标签体系，第一次看到素材自动批量跑出来的时候，<strong>原来要三天的活，一杯咖啡的功夫就出来了</strong>。后来连OZONOPS跨境电商SaaS都用多个AI agent搭了套系统，从认知到执行都是0-1的突破。</p>
+      <h3 class="cap-title">复杂项目与干系人治理</h3>
+      <p class="cap-story">腾讯时期统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>DAU 1300W</strong>，多项目并行<strong>0延期</strong>。顺丰同城百城万单加多品牌异业联动，<strong>转化6%到16%，单月拉新20W+</strong>。</p>
     </div>
   </section>
 
@@ -307,26 +262,21 @@ details[open] .proj-toggle{transform:rotate(45deg)}
     <details class="proj" open>
       <summary class="proj-head">
         <div>
-          <div class="proj-cat mono">HEALTHCARE SAAS</div>
+          <div class="proj-cat mono">医疗SaaS</div>
           <div class="proj-title">公立医疗SaaS<br>互联网医院规模化交付</div>
         </div>
         <span class="proj-toggle">+</span>
       </summary>
       <div class="proj-body">
-        <div class="proj-visual">
-          <div class="pv-label mono">500+ 机构覆盖 / 32家公立医院</div>
-          <div class="dot-grid" id="dots1"></div>
-          <div class="dot-legend"><span class="l1"><i></i>民营机构</span><span class="l2"><i></i>公立医院（32家）</span></div>
-        </div>
         <div class="proj-stats">
           <div class="ps"><div class="ps-num">500<em>+</em></div><div class="ps-label">机构交付</div></div>
           <div class="ps"><div class="ps-num">95<em>%+</em></div><div class="ps-label">准时率</div></div>
           <div class="ps"><div class="ps-num">12</div><div class="ps-label">标准SOP</div></div>
         </div>
         <div class="proj-detail">
-          <p><strong>背景：</strong>接手时500+民营机构加32家公立医院的互联网医院交付，公司内部没有现成流程，销售和交付分离导致过度承诺。</p>
-          <p><strong>做法：</strong>先跑20家真实机构再沉淀SOP；机构分层（钻石/铂金/黄金）配套不同交付标准；四维监控模型；范围说明前置为铁律。</p>
-          <p><strong>结果：</strong>9个月全部跑通，准时率95%+，沉淀12项SOP，人均效能+50%，固生堂年框续约逆势增长123%。</p>
+          <p><strong>背景：</strong>接手500+民营加32家公立互联网医院交付，公司无现成流程，销售过度承诺。</p>
+          <p><strong>做法：</strong>先跑20家真实机构再沉淀SOP；机构分层配套交付标准；四维监控模型；范围说明前置为铁律。</p>
+          <p><strong>结果：</strong>9个月全部跑通，准时率95%+，12项SOP，人均效能+50%，固生堂续约+123%。</p>
         </div>
       </div>
     </details>
@@ -334,31 +284,21 @@ details[open] .proj-toggle{transform:rotate(45deg)}
     <details class="proj">
       <summary class="proj-head">
         <div>
-          <div class="proj-cat mono">AIGC / E-COMMERCE</div>
+          <div class="proj-cat mono">AIGC · 电商</div>
           <div class="proj-title">AIGC驱动<br>电商运营提效</div>
         </div>
         <span class="proj-toggle">+</span>
       </summary>
       <div class="proj-body">
-        <div class="proj-visual">
-          <div class="pv-label mono">视觉生产流水线重构</div>
-          <div class="flow">
-            <div class="flow-node"><div class="flow-box">人工出图<br>1-2套/天</div></div>
-            <div class="flow-arrow">&rarr;</div>
-            <div class="flow-node"><div class="flow-box acc">ComfyUI<br>自动化</div></div>
-            <div class="flow-arrow">&rarr;</div>
-            <div class="flow-node"><div class="flow-box big">8x<br>产能</div></div>
-          </div>
-        </div>
         <div class="proj-stats">
           <div class="ps"><div class="ps-num">8<em>x</em></div><div class="ps-label">产能提升</div></div>
           <div class="ps"><div class="ps-num">70<em>%+</em></div><div class="ps-label">周期缩短</div></div>
           <div class="ps"><div class="ps-num">10<em>%</em></div><div class="ps-label">转化峰值</div></div>
         </div>
         <div class="proj-detail">
-          <p><strong>背景：</strong>传统视觉生产日均1-2套，商品上架滞后，往复修改40%+是无效功，跨部门协同靠人工流转。</p>
-          <p><strong>做法：</strong>搭建ComfyUI自动化工作流加属性标签体系，批量生产替代人工出图，引入A/B闭环迭代高转化视觉。</p>
-          <p><strong>结果：</strong>产能提升8倍，上架周期缩短70%+，转化率峰值10%。后续用多个AI agent搭建OZONOPS跨境电商SaaS，0-1完成。</p>
+          <p><strong>背景：</strong>传统视觉生产日均1-2套，上架滞后，往复修改40%+无效功。</p>
+          <p><strong>做法：</strong>ComfyUI自动化工作流加属性标签体系，批量生产替代人工，A/B闭环迭代高转化视觉。</p>
+          <p><strong>结果：</strong>产能8倍，周期-70%+，转化峰值10%。后续多AI agent搭建OZONOPS跨境SaaS。</p>
         </div>
       </div>
     </details>
@@ -387,7 +327,7 @@ details[open] .proj-toggle{transform:rotate(45deg)}
     <div class="exp">
       <div class="exp-year mono">2019-2020</div>
       <div class="exp-main">
-        <div class="exp-company">深圳市顺丰同城物流有限公司</div>
+        <div class="exp-company">深圳顺丰同城物流有限公司</div>
         <div class="exp-role">活动项目经理</div>
         <div class="exp-result">先验证再立项，百城万单加多品牌异业联动，<strong>转化6%到16%，单月拉新20W+，0延期</strong>。</div>
       </div>
@@ -403,31 +343,10 @@ details[open] .proj-toggle{transform:rotate(45deg)}
     <div class="exp">
       <div class="exp-year mono">2015-2017</div>
       <div class="exp-main">
-        <div class="exp-company">深圳市腾讯计算机系统有限公司</div>
+        <div class="exp-company">腾讯科技（深圳）有限公司</div>
         <div class="exp-role">游戏中心运营 / 手Q游戏中心</div>
         <div class="exp-result">统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>DAU 1300W，多项目并行0延期</strong>。</div>
       </div>
-    </div>
-  </section>
-
-  <!-- TOOLS -->
-  <section class="section" aria-label="工具技能">
-    <h2 class="sec-title">工具与技能</h2>
-    <div class="tools-cat-label mono">项目管理</div>
-    <div class="tools-grid">
-      <span>飞书</span><span>Jira</span><span>禅道</span><span>TAPD</span>
-    </div>
-    <div class="tools-cat-label mono">原型 / 脑图</div>
-    <div class="tools-grid">
-      <span>Axure</span><span>墨刀</span><span>Xmind</span>
-    </div>
-    <div class="tools-cat-label mono">AI / 创意</div>
-    <div class="tools-grid">
-      <span>ComfyUI</span><span>Photoshop</span>
-    </div>
-    <div class="tools-cat-label mono">开发 / 数据</div>
-    <div class="tools-grid">
-      <span>GitHub</span><span>SQL</span>
     </div>
   </section>
 
@@ -437,10 +356,10 @@ details[open] .proj-toggle{transform:rotate(45deg)}
     <p>如果你在找能扛复杂交付、能搭体系、能带团队的PM</p>
     <div class="qr-wrap"><img src="assets/qrcode.jpg" alt="微信二维码" loading="lazy" width="120" height="120"></div>
     <div class="wechat-id mono">DoubleGreens</div>
-    <a href="#contact" class="btn-contact-bottom" aria-label="复制微信号" onclick="navigator.clipboard&&navigator.clipboard.writeText('DoubleGreens');this.textContent='已复制微信号'">
+    <button class="btn-contact-bottom" aria-label="复制微信号" onclick="copyWechat(this)">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
       复制微信号
-    </a>
+    </button>
   </section>
 
 </main>
@@ -454,17 +373,46 @@ details[open] .proj-toggle{transform:rotate(45deg)}
 
 <script>
 (function(){
-  // Dot grid
-  var grid=document.getElementById('dots1');
-  if(grid){for(var i=0;i<125;i++){var d=document.createElement('div');d.className=i>=117?'dot accent':'dot filled';grid.appendChild(d);}}
-  // Smooth scroll for anchor links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(e){
       var t=document.querySelector(this.getAttribute('href'));
       if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
     });
   });
+
+  // Capability entrance animation
+  var caps=document.querySelectorAll('.cap');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var idx=Array.prototype.indexOf.call(caps,entry.target);
+          entry.target.style.transitionDelay=(idx*80)+'ms';
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.15});
+    caps.forEach(function(c){io.observe(c)});
+  }else{
+    caps.forEach(function(c){c.classList.add('visible')});
+  }
 })();
+
+function copyWechat(btn){
+  var id='DoubleGreens';
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(id).then(function(){
+      btn.textContent='已复制微信号';
+      setTimeout(function(){btn.innerHTML='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制微信号';},2000);
+    }).catch(function(){
+      btn.textContent='请手动复制：'+id;
+    });
+  }else{
+    btn.textContent='请手动复制：'+id;
+  }
+}
 </script>
 </body>
 </html>
