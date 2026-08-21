@@ -17,7 +17,7 @@
 
 /* ============ TOKENS ============ */
 :root{
-  --bg-page:#F8F8F6;--bg-card:#FFFFFF;
+  --bg-page:#FAFAFA;--bg-card:#FFFFFF;
   --text-primary:#2D2D2D;--text-secondary:#828282;--text-meta:#A2A2A2;
   --border-soft:#E8E8E6;--acc:#D94F3A;
   --tag-bg:#F4F2EE;--tag-text:#6B6B6B;
@@ -58,7 +58,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
 /* ============ SIDEBAR ============ */
 .sidebar{padding:20px 16px 24px}
-@media(min-width:768px){.sidebar{padding:36px 24px;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}}
+@media(min-width:768px){.sidebar{padding:36px 24px;position:sticky;top:0;height:100dvh;overflow-y:auto;display:flex;flex-direction:column}}
 
 /* Mobile: compact horizontal header */
 .sidebar-top{display:flex;gap:14px;align-items:flex-start}
@@ -68,6 +68,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .sidebar-name{font-size:28px;font-weight:900;letter-spacing:1px;line-height:1}
 .name-underline{width:28px;height:3px;background:var(--acc);margin:6px 0 8px;border-radius:2px}
 .sidebar-title{font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:3px}
+.sidebar-edu-mobile{font-size:10px;font-weight:600;color:var(--text-meta);margin-bottom:4px}
 .sidebar-tagline{font-size:11.5px;color:var(--text-secondary);line-height:1.5;display:none}
 .sidebar-tagline strong{color:var(--text-primary);font-weight:700}
 
@@ -95,6 +96,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .sidebar-name{font-size:36px;text-align:left}
   .name-underline{margin:8px 0 12px}
   .sidebar-title{font-size:13px}
+  .sidebar-edu-mobile{display:none}
   .sidebar-tagline{display:block;font-size:12.5px;margin-bottom:14px}
   .sidebar-quick{display:none}
   .sidebar-mobile-actions{display:none}
@@ -115,8 +117,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .ss-num em{font-style:normal;font-size:14px;color:var(--acc)}
   .ss-label{font-size:10px;font-weight:600;color:var(--text-meta);margin-top:3px}
   /* PC sidebar nav */
-  .sidebar-nav{margin-top:20px;padding-top:16px;border-top:1px solid var(--border-soft)}
-  .sidebar-nav a{display:block;font-size:12px;font-weight:600;color:var(--text-meta);padding:7px 0;transition:color .2s,padding-left .2s;border-left:2px solid transparent;padding-left:10px;margin-left:-10px}
+  .sidebar-nav{margin-top:16px;padding-top:12px;border-top:1px solid var(--border-soft)}
+  .sidebar-nav a{display:block;font-size:12px;font-weight:600;color:var(--text-meta);padding:5px 0;transition:color .2s,padding-left .2s;border-left:2px solid transparent;padding-left:10px;margin-left:-10px}
   .sidebar-nav a:hover{color:var(--text-primary)}
   .sidebar-nav a.active{color:var(--acc);border-left-color:var(--acc);font-weight:700}
   .btn-pdf{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:9px;margin-top:16px;font-size:11px;font-weight:700;color:var(--text-secondary);border:1px solid var(--border-soft);border-radius:8px;transition:all .2s}
@@ -130,16 +132,16 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 @media(min-width:1200px){.main{padding:48px 48px 56px}}
 .section{margin-bottom:36px}
 .section:last-child{margin-bottom:0}
-.sec-title{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-meta);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.sec-title{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--text-meta);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--border-soft)}
 
-/* ============ CAPABILITY LIST (not cards) ============ */
-.cap{position:relative;padding:18px 0 18px 16px;border-left:3px solid var(--border-soft);margin-bottom:4px;transition:border-color .25s}
-.cap:hover{border-left-color:var(--acc)}
+/* ============ CAPABILITY CARDS ============ */
+.cap{position:relative;background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 20px 18px 22px;margin-bottom:12px;border-left:4px solid var(--text-meta);transition:border-color .25s,box-shadow .25s,transform .2s}
+.cap:hover{border-left-color:var(--acc);box-shadow:var(--shadow-hover);transform:translateX(2px)}
 .cap-title{font-size:17px;font-weight:800;line-height:1.3;margin-bottom:8px;transition:color .2s}
 .cap:hover .cap-title{color:var(--acc)}
-.cap-bignum{font-size:14px;font-weight:800;color:var(--acc);margin-bottom:8px;line-height:1.5}
-.cap-bignum em{font-style:normal;font-size:20px;font-weight:900;margin:0 1px}
+.cap-bignum{font-size:14px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;line-height:1.5}
+.cap-bignum em{font-style:normal;font-size:20px;font-weight:900;color:var(--acc);margin:0 1px}
 .cap-story{font-size:13px;line-height:1.85;color:var(--text-secondary)}
 .cap-story strong{color:var(--text-primary);font-weight:700}
 .cap-story .hook{font-weight:700;color:var(--text-primary)}
@@ -148,15 +150,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .cap-only-first .cap-tags{display:none}
 .cap:first-child .cap-tags{display:flex}
 
-/* Mobile: story collapsed */
+/* Mobile: story collapsed (only first card) */
 .cap-story-wrap{overflow:hidden;max-height:none;transition:max-height .35s ease}
 .cap-toggle{display:none;font-size:11px;font-weight:700;color:var(--acc);margin-top:8px;padding:0}
 @media(max-width:767px){
+  .cap{padding:16px 16px 14px 18px}
   .cap-story-wrap{max-height:0}
-  .cap.expanded .cap-story-wrap{max-height:600px}
+  .cap.expanded .cap-story-wrap{max-height:800px}
   .cap-toggle{display:inline-flex;align-items:center;gap:4px}
   .cap-toggle .arrow{transition:transform .25s;display:inline-block}
   .cap.expanded .cap-toggle .arrow{transform:rotate(180deg)}
+  .cap.no-collapse .cap-story-wrap{max-height:none}
+  .cap.no-collapse .cap-toggle{display:none}
 }
 
 /* ============ PROJECTS (cards) ============ */
@@ -166,7 +171,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .proj-head:hover{background:rgba(0,0,0,.015)}
 .proj-head::-webkit-details-marker{display:none}
 .proj-title{font-size:16px;font-weight:800;line-height:1.3;color:var(--text-primary)}
-.proj-cat{font-size:10px;font-weight:700;color:var(--acc);letter-spacing:1px;margin-bottom:5px}
+.proj-cat{font-size:10px;font-weight:700;color:var(--text-meta);letter-spacing:1px;margin-bottom:5px}
 .proj-toggle{font-size:20px;font-weight:300;color:var(--text-meta);transition:transform .3s ease;flex-shrink:0;width:20px;text-align:center;line-height:1}
 details[open] .proj-toggle{transform:rotate(45deg)}
 .proj-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
@@ -231,8 +236,8 @@ details[open] .proj-body{grid-template-rows:1fr}
   .tools-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
   .tool-card{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 12px;transition:box-shadow .2s,transform .2s}
   .tool-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
-  .tool-card-title{font-size:10px;font-weight:800;color:var(--acc);letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:5px}
-  .tool-card-title svg{width:12px;height:12px;stroke:var(--acc);fill:none;stroke-width:2}
+  .tool-card-title{font-size:10px;font-weight:800;color:var(--text-secondary);letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+  .tool-card-title svg{width:12px;height:12px;stroke:var(--text-secondary);fill:none;stroke-width:2}
   .tool-list{font-size:11.5px;font-weight:600;color:var(--text-secondary);line-height:1.8}
 }
 
@@ -302,7 +307,7 @@ details[open] .proj-body{grid-template-rows:1fr}
   .section{margin-bottom:16px}
   .sec-title{font-size:9px;margin-bottom:8px;color:#666}
   .sec-title::after{display:none}
-  .cap{border-left:2px solid #D94F3A;padding:8px 0 8px 12px;break-inside:avoid}
+  .cap{border-left:2px solid #D94F3A;padding:10px 12px;break-inside:avoid;box-shadow:none;background:#fff;margin-bottom:8px}
   .cap-title{font-size:13px;margin-bottom:4px}
   .cap-bignum{font-size:11px;margin-bottom:4px}
   .cap-story{font-size:10.5px;line-height:1.7}
@@ -350,6 +355,7 @@ details[open] .proj-body{grid-template-rows:1fr}
       <h1 class="sidebar-name">Greens</h1>
       <div class="name-underline"></div>
       <div class="sidebar-title">资深项目经理 / Senior PM</div>
+      <div class="sidebar-edu-mobile">自考本科 · PMP 认证</div>
       <p class="sidebar-tagline"><strong>10年</strong>复杂项目交付经验，曾任<strong>腾讯</strong>。擅长规模化交付体系搭建、团队0-1组建、AI流程重构。</p>
     </div>
   </div>
@@ -395,6 +401,7 @@ details[open] .proj-body{grid-template-rows:1fr}
     </a>
     <div class="sidebar-stats">
       <div class="ss"><div class="ss-num">10<em>+</em></div><div class="ss-label">年项目交付</div></div>
+      <div class="ss"><div class="ss-num">500<em>+</em></div><div class="ss-label">机构规模</div></div>
     </div>
     <nav class="sidebar-nav" aria-label="页面导航">
       <a href="#capabilities" class="nav-link">核心能力</a>
@@ -432,7 +439,7 @@ details[open] .proj-body{grid-template-rows:1fr}
     <div class="cap">
       <h3 class="cap-title">团队0-1组建与管理</h3>
       <div class="cap-bignum"><em>20</em> 人团队 · <em>8%</em> 离职率 · <em>15</em> 名骨干</div>
-      <div class="cap-story-wrap"><div class="cap-story">从0搭建<strong>20人交付团队</strong>，离职率<strong>8%</strong>（行业平均15%）。做法是框架性授权加双通道培养，新人培训从1个月压到2周，输出<strong>15名</strong>能独立扛项目的骨干。团队稳定直接支撑了交付质量和客户续约，固生堂续约+123%就是证据。</div></div>
+      <div class="cap-story-wrap"><div class="cap-story">从0搭建<strong>20人交付团队</strong>，离职率<strong>8%</strong>（行业平均15%）。框架性授权加双通道培养，新人培训从1个月压到2周，输出<strong>15名</strong>能独立扛项目的骨干。</div></div>
       <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
     </div>
 
@@ -445,8 +452,8 @@ details[open] .proj-body{grid-template-rows:1fr}
 
     <div class="cap">
       <h3 class="cap-title">复杂项目与干系人治理</h3>
-      <div class="cap-bignum"><em>1300W</em> DAU级产品 · <em>0</em> 延期 · <em>20W+</em> 单月拉新</div>
-      <div class="cap-story-wrap"><div class="cap-story">腾讯时期统筹天天酷跑、王者荣耀等头部产品资源排期，负责<strong>DAU 1300W级产品的资源排期与版本节点管控</strong>，多项目并行<strong>0延期</strong>。顺丰同城百城万单加多品牌异业联动，<strong>转化6%到16%，单月拉新20W+</strong>。</div></div>
+      <div class="cap-bignum"><em>千万级</em> DAU产品 · <em>0</em> 延期 · <em>20W+</em> 单月拉新</div>
+      <div class="cap-story-wrap"><div class="cap-story">腾讯时期统筹天天酷跑、王者荣耀等头部产品资源排期，负责<strong>千万级DAU产品的资源排期与版本节点管控</strong>，多项目并行<strong>0延期</strong>。顺丰同城百城万单加多品牌异业联动，<strong>转化6%到16%，单月拉新20W+</strong>。</div></div>
       <button class="cap-toggle" onclick="this.parentElement.classList.toggle('expanded')"><span>展开经历</span><span class="arrow">↓</span></button>
     </div>
   </section>
@@ -492,9 +499,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="ps"><div class="ps-num">10<em>%</em></div><div class="ps-label">转化峰值</div></div>
         </div>
         <div class="proj-detail">
-          <p><strong>背景：</strong>传统视觉生产日均1-2套，上架滞后，往复修改40%+无效功。</p>
-          <p><strong>做法：</strong>ComfyUI自动化工作流加属性标签体系，批量生产替代人工，A/B闭环迭代高转化视觉。</p>
-          <p><strong>结果：</strong>产能8倍，周期-70%+，转化峰值10%。后续多AI agent搭建OZONOPS跨境SaaS。</p>
+          <p>传统视觉生产日均仅1-2套，上架滞后，往复修改40%是无效功。牵头搭建<strong>ComfyUI自动化工作流</strong>加属性标签体系，用批量生产替代人工出图，并通过A/B闭环迭代高转化视觉。最终<strong>产能提升8倍，上架周期缩短70%+，转化率峰值10%</strong>。后续用多个AI agent从0搭建OZONOPS跨境电商SaaS。</p>
         </div>
       </div></div></div>
     </details>
@@ -510,7 +515,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2024 - 至今</div>
           <div class="exp-company">深圳友时文化有限公司</div>
           <div class="exp-role">项目经理 / 交付负责人</div>
-          <div class="exp-result">AIGC工作流重构视觉生产，<strong>产能8倍、周期-70%+</strong>；从0搭建OZONOPS跨境SaaS。</div>
+          <div class="exp-result">AIGC工作流重构视觉生产，<strong>产能提升8倍</strong>；从0搭建OZONOPS跨境SaaS。</div>
         </div>
       </div>
       <div class="exp">
@@ -519,7 +524,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2020 - 2024</div>
           <div class="exp-company">深圳宁远科技股份有限公司</div>
           <div class="exp-role">项目交付经理 / 深圳区域负责人</div>
-          <div class="exp-result">0-1搭建20人团队和交付体系，<strong>500+机构9个月跑通</strong>，准时率95%+，固生堂续约+123%。</div>
+          <div class="exp-result">0-1搭建20人团队和交付体系，<strong>9个月跑通500+机构</strong>。</div>
         </div>
       </div>
       <div class="exp">
@@ -528,7 +533,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2019 - 2020</div>
           <div class="exp-company">深圳顺丰同城物流有限公司</div>
           <div class="exp-role">活动项目经理</div>
-          <div class="exp-result">先验证再立项，百城万单加多品牌异业联动，<strong>转化6%到16%，单月拉新20W+，0延期</strong>。</div>
+          <div class="exp-result">百城万单异业联动，<strong>转化6%到16%，单月拉新20W+</strong>。</div>
         </div>
       </div>
       <div class="exp">
@@ -546,7 +551,7 @@ details[open] .proj-body{grid-template-rows:1fr}
           <div class="exp-year mono">2015 - 2017</div>
           <div class="exp-company">腾讯科技（深圳）有限公司</div>
           <div class="exp-role">游戏中心运营 / 手Q游戏中心</div>
-          <div class="exp-result">统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>DAU 1300W级产品，多项目并行0延期</strong>。</div>
+          <div class="exp-result">统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>千万级DAU产品，多项目并行0延期</strong>。</div>
         </div>
       </div>
     </div>
@@ -621,9 +626,9 @@ details[open] .proj-body{grid-template-rows:1fr}
     <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
     复制微信
   </button>
-  <button class="btn-email" onclick="showToast('邮箱：greens.pm@outlook.com')">
+  <button class="btn-email" onclick="copyEmail(this)">
     <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    邮箱
+    复制邮箱
   </button>
 </div>
 
@@ -647,10 +652,17 @@ details[open] .proj-body{grid-template-rows:1fr}
   }
   window.addEventListener('scroll',updateProgress,{passive:true});
 
-  // PC: open first project by default
+  // PC: open first project by default (with animation)
   if(window.innerWidth>=768){
     var p1=document.getElementById('proj1');
-    if(p1)p1.open=true;
+    if(p1){requestAnimationFrame(function(){requestAnimationFrame(function(){p1.open=true;})});}
+  }
+
+  // Mobile: caps 2-4 have short stories, no collapse needed
+  if(window.innerWidth<768){
+    document.querySelectorAll('.cap').forEach(function(c,i){
+      if(i>0)c.classList.add('no-collapse');
+    });
   }
 
   // PC: scrollspy nav
@@ -668,7 +680,7 @@ details[open] .proj-body{grid-template-rows:1fr}
             if(idx>=0)links[idx].classList.add('active');
           }
         });
-      },{threshold:0.2,rootMargin:'-80px 0px -40% 0px'});
+      },{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});
       sections.forEach(function(s){if(s)spy.observe(s)});
     }
   }
@@ -692,6 +704,19 @@ function copyWechat(btn){
     });
   }else{
     showToast('微信号：'+id);
+  }
+}
+
+function copyEmail(btn){
+  var email='greens.pm@outlook.com';
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(email).then(function(){
+      showToast('已复制邮箱：'+email);
+    }).catch(function(){
+      showToast('邮箱：'+email);
+    });
+  }else{
+    showToast('邮箱：'+email);
   }
 }
 </script>
