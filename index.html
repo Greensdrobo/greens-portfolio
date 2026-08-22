@@ -57,10 +57,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .sidebar-name{font-size:28px;font-weight:900;letter-spacing:1px;line-height:1}
 .name-underline{width:28px;height:3px;background:var(--acc);margin:6px 0 8px;border-radius:2px}
 .sidebar-title{font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:3px}
-.sidebar-edu-mobile{font-size:10px;font-weight:600;color:var(--text-meta);margin-bottom:4px}
-.sidebar-tagline{font-size:11.5px;color:var(--text-secondary);line-height:1.5;display:none}
+.sidebar-edu-mobile{font-size:10px;font-weight:600;color:var(--text-meta);margin-bottom:4px;display:none}
+.sidebar-tagline{font-size:11.5px;color:var(--text-secondary);line-height:1.5;display:block;margin-bottom:10px}
 
-.sidebar-quick{display:flex;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-soft)}
+.sidebar-quick{display:none}
 .sidebar-quick .q-num{font-size:20px;font-weight:900;line-height:1}
 .sidebar-quick .q-num em{font-style:normal;font-size:13px;color:var(--acc)}
 .sidebar-quick .q-label{font-size:9px;font-weight:600;color:var(--text-meta);margin-top:2px}
@@ -107,6 +107,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .btn-pdf{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:9px;margin-top:16px;font-size:11px;font-weight:700;color:var(--text-secondary);border:1px solid var(--border-soft);border-radius:8px;transition:all .2s}
   .btn-pdf:hover{color:var(--text-primary);border-color:var(--text-primary)}
   .btn-pdf svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+  .sidebar-footnote{font-size:10px;color:var(--text-meta);margin-top:14px;text-align:center;line-height:1.5}
 }
 
 /* ============ MAIN ============ */
@@ -241,11 +242,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
 /* ============ OUTSIDE WORK ============ */
 .outside-content{max-width:680px}
+.outside-experiment{font-size:14.5px;line-height:1.85;color:var(--text-primary);margin-bottom:14px}
 .outside-item{margin-bottom:14px;font-size:13px;line-height:1.7;color:var(--text-secondary)}
 .outside-item:last-child{margin-bottom:0}
 .outside-label{font-weight:700;color:var(--text-primary);margin-right:6px}
-.outside-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.outside-tags span{font-size:10.5px;font-weight:600;color:var(--tag-text);background:var(--tag-bg);padding:3px 10px;border-radius:20px}
+@media(min-width:768px){.outside-experiment{font-size:15px}}
 
 /* ============ BOTTOM CONTACT ============ */
 .bottom-contact{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 24px;text-align:center;margin-bottom:20px}
@@ -271,6 +272,28 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text-primary);color:var(--bg-card);padding:10px 20px;border-radius:8px;font-size:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:200;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+/* ============ MOBILE CONTENT REORDER ============ */
+@media(max-width:767px){
+  .main{display:flex;flex-direction:column}
+  #projects{order:1}
+  #story{order:2}
+  #how{order:3}
+  #outside{order:4}
+  #experience{order:5}
+  #tools{order:6}
+  .section{margin-bottom:32px}
+  .mobile-toggle{display:inline-flex!important;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--acc);padding:10px 0 2px;background:none;border:none;cursor:pointer;width:100%;justify-content:flex-start}
+  .mobile-toggle .arrow{transition:transform .2s ease-out;display:inline-block;font-size:10px}
+  .section.collapsed .mobile-toggle .arrow{transform:rotate(-90deg)}
+  .section.collapsed .collapsible{display:none}
+  .section.collapsed .story-teaser{display:block}
+  .story-teaser{display:none}
+}
+@media(min-width:768px){
+  .mobile-toggle{display:none!important}
+  .story-teaser{display:none}
+}
+
 /* ============ FOOTER ============ */
 .footer{padding:16px 16px;display:flex;justify-content:space-between;font-size:10px;color:var(--text-meta);font-weight:600;letter-spacing:.5px}
 @media(min-width:768px){.footer{grid-column:2;padding:20px 36px}}
@@ -280,7 +303,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 @media print{
   @page{size:A4;margin:12mm}
   body{background:#fff;color:#000;font-size:11px}
-  .progress-bar,.mobile-bar,.toast,.btn-pdf,.modal-overlay,.proj-cta{display:none!important}
+  .progress-bar,.mobile-bar,.toast,.btn-pdf,.modal-overlay,.proj-cta,.mobile-toggle{display:none!important}
+  .collapsible{display:block!important}
+  .section.collapsed .collapsible{display:block!important}
   .page{display:block;max-width:100%}
   .sidebar{position:static;height:auto;padding:0 0 14px;display:block}
   .sidebar-top{display:flex;gap:16px;align-items:flex-start}
@@ -326,6 +351,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .tools-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
   .tool-card{box-shadow:none;border:1px solid #ddd;padding:6px}
   .outside-item{font-size:10.5px;margin-bottom:6px}
+  .outside-experiment{font-size:10.5px;margin-bottom:6px;line-height:1.6}
+  .sidebar-footnote{font-size:9px;margin-top:8px;text-align:left}
   .bottom-contact{display:block;box-shadow:none;border:1px solid #ddd;padding:14px;text-align:left;margin-top:14px}
   .qr-wrap{display:none}
   .footer{display:none}
@@ -378,16 +405,14 @@ body{background:var(--bg-page)}
   .section{margin-bottom:34px}
   #projects{order:1}
   #story{order:2}
-  #experience{order:3}
-  #how{order:4}
-  #tools{order:5}
-  #outside{order:6}
+  #how{order:3}
+  #outside{order:4}
+  #experience{order:5}
+  #tools{order:6}
   #contact-section{order:7}
   .sec-title{font-size:10px;margin-bottom:12px}
   .story-content p{font-size:15px;line-height:1.8}
-  .story-content p:first-child{font-size:18px;line-height:1.5;color:var(--text-primary);font-weight:700}
-  .story-highlight{padding:12px 0;margin:4px 0;font-size:21px!important}
-  .story-quote{font-size:14px;padding:12px 14px}
+  .story-content>p:first-child{font-size:18px;line-height:1.5;color:var(--text-primary);font-weight:700}
   .story-trust{gap:6px;flex-wrap:wrap;font-size:10px}
   .proj-card{padding:18px;margin-bottom:10px}
   .proj-card-title{font-size:19px;line-height:1.35}
@@ -429,7 +454,7 @@ body{background:var(--bg-page)}
       <div class="name-underline"></div>
       <div class="sidebar-title">资深项目经理 / Senior PM</div>
       <div class="sidebar-edu-mobile">自考本科 · PMP 认证</div>
-      <p class="sidebar-tagline">我处理的是那些没有现成路可走、但必须交付的项目。10年，做过游戏、物流、医疗SaaS和电商，现在把AI和跨境也放进这套方法里。</p>
+      <p class="sidebar-tagline">我处理的是那些没有现成路可走、但必须交付的项目。10年，做过游戏、物流、医疗SaaS和电商。现在在用AI和跨境业务验证，PM能不能从市场、流程到交付，自己跑通一条链路。</p>
     </div>
   </div>
 
@@ -450,10 +475,6 @@ body{background:var(--bg-page)}
   </div>
 
   <div class="sidebar-card">
-    <div class="sidebar-edu">
-      <span class="edu-tag">自考本科 · 商务秘书</span>
-      <span class="edu-tag">PMP 认证</span>
-    </div>
     <div class="sidebar-contact">
       <div class="contact-row">
         <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -468,24 +489,20 @@ body{background:var(--bg-page)}
       <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       联系我
     </a>
-    <div class="sidebar-stats">
-      <div class="ss"><div class="ss-num">10<em>+</em></div><div class="ss-label">年项目交付</div></div>
-      <div class="ss"><div class="ss-num">500<em>+</em></div><div class="ss-label">机构规模</div></div>
-    </div>
     <nav class="sidebar-nav" aria-label="页面导航">
       <a href="#story" class="nav-link">我的故事</a>
-      <a href="#how" class="nav-link">做事方式</a>
-      <a href="#problem" class="nav-link">面对的问题</a>
+      <a href="#how" class="nav-link">原则的来源</a>
       <a href="#projects" class="nav-link">精选案例</a>
       <a href="#experience" class="nav-link">职业经历</a>
       <a href="#tools" class="nav-link">工具技能</a>
-      <a href="#outside" class="nav-link">工作之外</a>
+      <a href="#outside" class="nav-link">正在实验</a>
       <a href="#contact-section" class="nav-link">联系我</a>
     </nav>
     <button class="btn-pdf" onclick="window.print()">
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       导出 PDF
     </button>
+    <div class="sidebar-footnote">自考本科 · 商务秘书 · PMP 认证（2025）</div>
   </div>
 </aside>
 
@@ -493,13 +510,14 @@ body{background:var(--bg-page)}
 <main class="main" id="main">
 
   <!-- MY STORY -->
-  <section class="section" id="story" aria-label="我的故事">
+  <section class="section collapsed" id="story" aria-label="我的故事">
     <h2 class="sec-title">我的故事</h2>
     <div class="story-content">
-      <p>我从腾讯出来的时候，很多人不理解。在腾讯我学会了什么叫体系——几百人按同一套节奏走。但我想知道，如果什么都没有，我能不能自己长出一套来。</p>
-      <p>后来我在游民一个人就是一套SOP，在顺丰把异业联动转化率翻了快3倍，在宁远从0搭了20人团队撑住数百家机构交付。现在在友时，我用AI把整条视觉生产流水线重画了一遍。</p>
-      <p class="story-highlight">10年，5家公司，4个行业。看起来跳得很散，但底层是同一件事：<strong>在没有路的地方，跑出一条路来，然后把它变成所有人都能走的体系。</strong></p>
-      <p class="story-quote">好的交付不是靠人扛，是靠体系跑。这是我踩了无数坑之后，最相信的一件事。</p>
+      <p>我从腾讯出来的时候，很多人不理解。在手Q游戏中心，我学会了什么叫体系——资源日历、版本节点、分层触达，几百人按同一套节奏走。但我心里清楚，那套体系不是我建的，我只是里面运转得还不错的一环。我想知道，如果什么都没有，我能不能自己长出一套来。</p>
+      <div class="collapsible">
+      <p>去游民是第一次被扔进荒野。团队就2-3个人，没有SOP，没有流程手册，连"发行该先做什么"都是空白。一个游戏从定位、内容时间轴到异业联动，所有环节都得我自己排。说实话那时候我很享受这种感觉——什么都能扛，一个人就是一套SOP。《领主总动员》预月百万流水，《狩游世界》没推广拿了TapTap 8.5。但现在回头看，那种"什么都能扛"恰恰是问题：我走了，流程就没了。</p>
+      <p>宁远彻底改变了我对交付的理解。入职第一周，销售甩来一份"两周上线"的合同，研发排期却在三个月后。我靠自己盯现场、陪护士一步步试，把第一家诊所跑通了。但500家机构不可能靠我一个人凌晨两点改文档。深圳三院那次，销售承诺了合同外的东西，科主任直接打电话来骂。我花三天写了范围说明书，要求销售签字再交付——老板一开始不同意，说影响签单，我拿三院的投诉记录跟他谈，最后他拍板说"按你说的来"。</p>
+      <p>也是在宁远，我开始逼自己把"我会做"变成"别人也能做"。第一版SOP不是闭门写出来的，是用踩坑记录堆出来的。机构按钻石铂金黄金分层，配套不同交付标准，又建了四维监控模型。新人从入职到独立扛项目只需要2周，20人团队离职率8%。从那以后我不再迷信个人英雄——一个人能扛事是本事，但能让体系自己跑，才是交付真正该干的事。</p>
       <div class="story-trust">
         <span>PMP 认证</span>
         <span class="trust-sep" aria-hidden="true">·</span>
@@ -507,49 +525,36 @@ body{background:var(--bg-page)}
         <span class="trust-sep" aria-hidden="true">·</span>
         <span>10 年项目交付</span>
       </div>
+      </div>
     </div>
+    <button class="mobile-toggle" data-label="完整故事" onclick="toggleSection(this)">展开完整故事 <span class="arrow">↓</span></button>
   </section>
 
   <!-- HOW I WORK -->
-  <section class="section" id="how" aria-label="我做事的方式">
-    <h2 class="sec-title">我做事的方式</h2>
+  <section class="section" id="how" aria-label="原则的来源">
+    <h2 class="sec-title">原则的来源</h2>
     <div class="principles">
       <div class="principle">
         <span class="p-num mono">01</span>
         <div class="principle-body">
-          <div class="principle-title">先跑通，再沉淀</div>
-          <div class="principle-desc">我从不闭门写SOP，先让真实项目跑起来，方法自然会长出来。宁远的第一版SOP是用踩坑记录堆出来的，不是设计出来的。</div>
+          <div class="principle-title">我不相信第一版SOP</div>
+          <div class="principle-desc">第一版流程通常来自会议室，真正有用的版本来自现场。宁远的第一版交付SOP，是我在深圳宝安一家20张床的诊所里，陪护士用了一周XP系统跑出来的——不是在工位上设计出来的。</div>
         </div>
       </div>
       <div class="principle">
         <span class="p-num mono">02</span>
         <div class="principle-body">
-          <div class="principle-title">范围前置是铁律</div>
-          <div class="principle-desc">被深圳三院的科主任骂过之后，我把"范围说明书签字确认"定成了铁律——没签的单，不交。</div>
+          <div class="principle-title">我会先把范围说难听一点</div>
+          <div class="principle-desc">让销售在签单时不舒服，通常比项目做到一半再解释边界便宜。深圳三院那次之后，我把"范围说明书签字确认"写成了交付第一步。老板说我影响签单，但三院的投诉记录比他的乐观更有说服力。</div>
         </div>
       </div>
       <div class="principle">
         <span class="p-num mono">03</span>
         <div class="principle-body">
-          <div class="principle-title">框架授权，节点实控</div>
-          <div class="principle-desc">我搭好框架就敢放手让团队成长，但里程碑和范围红线一定自己盯。20人的团队，离职率8%，靠的不是管得多细，是该放的放、该收的收。</div>
+          <div class="principle-title">我不追求团队永远依赖我</div>
+          <div class="principle-desc">新人能不能在两周后独立处理真实问题，比我显得多能干重要。宁远20人团队离职率8%，不是因为我管得细，是框架搭好后我敢放手——里程碑和红线我盯，过程让他们自己长。</div>
         </div>
       </div>
-      <div class="principle">
-        <span class="p-num mono">04</span>
-        <div class="principle-body">
-          <div class="principle-title">AI重画流程，不是加buff</div>
-          <div class="principle-desc">我用AI不是为了省力气，是把整条流水线重画一遍。友时把日均1-2套人工出图改成8倍自动化，不是"更快了"，是"原来的流程不存在了"。</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT I DEAL WITH -->
-  <section class="section" id="problem" aria-label="我正在处理的问题">
-    <h2 class="sec-title">我正在处理的问题</h2>
-    <div class="problem-content">
-      <p>我接手的项目，大多没有现成路可走：流程是空白的，需求在变，研发排不上，销售还在签新单。这种时候我不先写计划，而是先找一个最小的真实场景跑起来。跑通了，再把路径变成SOP、变成分层标准、变成别人也能走的体系。</p>
     </div>
   </section>
 
@@ -573,61 +578,65 @@ body{background:var(--bg-page)}
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="section" id="experience" aria-label="职业经历">
+  <section class="section collapsed" id="experience" aria-label="职业经历">
     <h2 class="sec-title">职业经历</h2>
     <p class="exp-intro">从游戏到物流到医疗到电商，看起来跳得很散，但每一步都是在练同一件事：在没有路的地方搭体系。</p>
+    <div class="collapsible">
     <div class="timeline">
       <div class="exp current">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2024 - 至今 <span class="exp-turn">学AI重画流程</span></div>
+          <div class="exp-year mono">2024 - 至今</div>
           <div class="exp-company">深圳友时文化有限公司</div>
           <div class="exp-role">项目经理 / 交付负责人</div>
-          <div class="exp-result">我用AIGC工作流重构了视觉生产，从0到1搭了OZONOPS跨境SaaS。</div>
+          <div class="exp-result">第一次把AI当成流程设计问题而不是工具问题。我用AIGC工作流重构了视觉生产，从0到1搭了OZONOPS跨境SaaS。</div>
         </div>
       </div>
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2020 - 2024 <span class="exp-turn">学规模化交付</span></div>
+          <div class="exp-year mono">2020 - 2024</div>
           <div class="exp-company">深圳宁远科技股份有限公司</div>
           <div class="exp-role">项目交付经理 / 深圳区域负责人</div>
-          <div class="exp-result">我从0搭了20人团队和交付体系，<strong>建立了可复制的互联网医院交付标准</strong>。</div>
+          <div class="exp-result">第一次真正处理规模、团队和范围的冲突。我从0搭了20人团队和交付体系，<strong>建立了可复制的互联网医院交付标准</strong>。</div>
         </div>
       </div>
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2019 - 2020 <span class="exp-turn">学增长验证</span></div>
+          <div class="exp-year mono">2019 - 2020</div>
           <div class="exp-company">深圳顺丰同城物流有限公司</div>
           <div class="exp-role">活动项目经理</div>
-          <div class="exp-result">百城万单异业联动，我把转化率从6%拉到16%，<strong>单月拉新20W+</strong>。</div>
+          <div class="exp-result">第一次发现项目管理也直接影响增长。百城万单异业联动，我把转化率从6%拉到16%，<strong>单月拉新20W+</strong>。</div>
         </div>
       </div>
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2017 - 2019 <span class="exp-turn">学0到1</span></div>
+          <div class="exp-year mono">2017 - 2019</div>
           <div class="exp-company">上海游民网络科技有限公司</div>
           <div class="exp-role">游戏发行 / 汇报创新发展部CMO</div>
-          <div class="exp-result">2-3人团队0流程全案发行，我一个人就是一套SOP。《领主总动员》预月百万流水，《狩游世界》TapTap 8.5分。</div>
+          <div class="exp-result">第一次被迫一个人承担完整结果。2-3人团队0流程全案发行，我一个人就是一套SOP。《领主总动员》预月百万流水，《狩游世界》TapTap 8.5分。</div>
         </div>
       </div>
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2015 - 2017 <span class="exp-turn">学体系</span></div>
+          <div class="exp-year mono">2015 - 2017</div>
           <div class="exp-company">腾讯科技（深圳）有限公司</div>
           <div class="exp-role">游戏中心运营 / 手Q游戏中心</div>
-          <div class="exp-result">我统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>千万级DAU产品，多项目并行0延期</strong>。</div>
+          <div class="exp-result">第一次看见成熟体系怎么运转，也第一次意识到自己只是体系里的一环。我统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>千万级DAU产品，多项目并行0延期</strong>。</div>
         </div>
       </div>
     </div>
+    </div>
+    <button class="mobile-toggle" data-label="完整经历" onclick="toggleSection(this)">查看完整经历 <span class="arrow">↓</span></button>
   </section>
 
   <!-- TOOLS -->
-  <section class="section" id="tools" aria-label="工具技能">
+  <section class="section collapsed" id="tools" aria-label="工具技能">
     <h2 class="sec-title">工具与技能</h2>
+    <div class="collapsible">
     <div class="tools-scroll">
       <span class="tool-pill">飞书</span><span class="tool-pill">Jira</span><span class="tool-pill">禅道</span><span class="tool-pill">TAPD</span>
       <span class="tool-pill">Axure</span><span class="tool-pill">墨刀</span><span class="tool-pill">Xmind</span><span class="tool-pill">Photoshop</span>
@@ -663,17 +672,16 @@ body{background:var(--bg-page)}
         <div class="tool-list">GitHub · SQL<br>数据分析</div>
       </div>
     </div>
+    </div>
+    <button class="mobile-toggle" data-label="工具技能" onclick="toggleSection(this)">查看工具技能 <span class="arrow">↓</span></button>
   </section>
 
   <!-- OUTSIDE WORK -->
-  <section class="section" id="outside" aria-label="工作之外">
-    <h2 class="sec-title">工作之外</h2>
+  <section class="section" id="outside" aria-label="正在进行的实验">
+    <h2 class="sec-title">正在进行的实验</h2>
     <div class="outside-content">
-      <div class="outside-item"><span class="outside-label">我最近在折腾：</span>OZONOPS 跨境电商 SaaS，用多个 AI agent 从0跑通俄罗斯市场的半精铺模式。</div>
-      <div class="outside-item"><span class="outside-label">我最近在学：</span>ComfyUI 工作流设计、AI Agent 编排、俄语（为了 OZON 平台）。</div>
-      <div class="outside-tags">
-        <span>10年交付老兵</span><span>AI 工具控</span><span>跨境电商创业者</span><span>深圳本地人</span>
-      </div>
+      <p class="outside-experiment">我还没有把 OZONOPS 做成一个成熟产品。但我正在用它验证一件事：一个 PM 能不能不依赖大团队，从市场、流程到交付，自己跑通一条跨境业务链。</p>
+      <div class="outside-item"><span class="outside-label">同时在学：</span>ComfyUI 工作流设计、AI Agent 编排、俄语——都是为了让这条链路少依赖别人。</div>
     </div>
   </section>
 
@@ -756,9 +764,9 @@ body{background:var(--bg-page)}
       </div>
       <div class="star-section">
         <h4 class="star-label">⚡ 行动</h4>
-        <p>我没有直接让设计师用AI，而是自己先跑了一个月 ComfyUI。把电商主图的流程拆成12个节点，每个节点对应一个可调整的参数——底色、光影、角度、材质、场景风格。然后搭了属性标签体系：产品颜色、材质、场景、风格，运营选标签就能出图，不需要懂 prompt。</p>
-        <p>设计师的抵触是最大的问题。我没有说"AI替代你们"，而是说"你们从画图变成审图+调优"。先让最愿意尝试的一个设计师试，她用工作流一天出了20套图，质量比手动的还好。其他设计师看到结果，主动来找我学。</p>
-        <p>运营那边更简单。我做了一个标签选择界面，他们选完标签点"生成"，半小时出一批素材，挑图说"这个比人工的好"。后来又加了A/B测试，把高转化的视觉风格沉淀成模板。</p>
+        <p>我没有直接让设计师用AI，而是自己先跑了一个月。第一批图出来根本不能看——光影奇怪、产品变形、材质完全不对，运营看了直摇头。我没有急着推，而是把每批失败的图分类：哪些是底色问题、哪些是角度问题、哪些是AI对材质的理解错了。然后反过来，把这些判断变成可选择的标签和参数。</p>
+        <p>设计师的抵触是最大的问题。我没有说"AI替代你们"，而是说"你们从画图变成审图和调优"。先让最愿意尝试的一个设计师试，她用新流程一天出了20套图，质量比手动的还好。其他设计师看到结果，主动来找我学。那个最先尝试的设计师，后来成了公司的AI工作流培训师。</p>
+        <p>运营那边，我做了一个标签选择界面——产品颜色、材质、场景、风格，选完点生成，半小时出一批。他们不需要懂prompt，只需要做判断。后来又加了A/B测试，把高转化的视觉沉淀成模板，重复判断变成了规则，人只需要处理规则覆盖不了的部分。</p>
       </div>
       <div class="star-section">
         <h4 class="star-label">📊 结果</h4>
@@ -862,6 +870,17 @@ function showToast(msg){
   t.classList.add('show');
   clearTimeout(t._timer);
   t._timer=setTimeout(function(){t.classList.remove('show')},2200);
+}
+
+function toggleSection(btn){
+  var section=btn.closest('.section');
+  var collapsed=section.classList.toggle('collapsed');
+  var label=btn.getAttribute('data-label')||'';
+  if(collapsed){
+    btn.innerHTML='展开'+label+' <span class="arrow">↓</span>';
+  }else{
+    btn.innerHTML='收起'+label+' <span class="arrow">↑</span>';
+  }
 }
 
 function copyWechat(btn){
