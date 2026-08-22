@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Greens · 资深项目经理</title>
+<title>Greens · 资深项目经理 | 交付体系搭建 · AI流程重构</title>
 <meta name="description" content="Greens，资深项目经理。做了10年项目交付，曾任腾讯。相信好的交付靠体系跑，不靠人扛。">
 <link rel="preload" href="assets/fonts/Outfit-900.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -131,11 +131,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .story-content{max-width:680px}
 .story-content p{font-size:14px;line-height:1.9;color:var(--text-secondary);margin-bottom:16px}
 .story-content p strong{color:var(--text-primary);font-weight:700}
-.story-highlight{font-size:16px!important;font-weight:700;color:var(--text-primary)!important;line-height:1.7!important;padding:16px 0;margin:8px 0}
-.story-quote{font-size:14px;color:var(--text-primary)!important;font-weight:600;border-left:3px solid var(--acc);padding-left:16px;margin-top:8px!important}
+.story-highlight{font-size:16px!important;font-weight:700;color:var(--text-primary)!important;line-height:1.7!important;padding:20px 0;margin:10px 0}
+.story-quote{font-size:14px;color:var(--text-primary)!important;font-weight:600;border-left:3px solid var(--acc);padding:12px 16px;margin-top:12px!important;background:var(--tag-bg);border-radius:0 6px 6px 0;line-height:1.7}
+.story-trust{display:flex;align-items:center;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border-soft);font-size:11px;font-weight:700;color:var(--text-meta);letter-spacing:.5px}
+.story-trust .trust-sep{color:var(--border-soft);font-weight:400}
 @media(min-width:768px){
   .story-content p{font-size:14.5px}
-  .story-highlight{font-size:18px!important}
+  .story-highlight{font-size:18px!important;padding:24px 0;margin:12px 0}
+  .story-quote{font-size:15px}
+  .story-trust{font-size:11.5px}
 }
 
 /* ============ PRINCIPLES ============ */
@@ -153,7 +157,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .proj-cat{font-size:10px;font-weight:700;color:var(--text-meta);letter-spacing:1px;margin-bottom:6px}
 .proj-card-title{font-size:16px;font-weight:800;line-height:1.3;color:var(--text-primary);margin-bottom:6px}
 .proj-summary{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
-.proj-cta{font-size:12px;font-weight:700;color:var(--acc);display:inline-flex;align-items:center;gap:4px}
+.proj-cta{font-size:13px;font-weight:700;color:var(--acc);display:inline-flex;align-items:center;gap:6px}
+.proj-cta .arrow{display:inline-block;transition:transform .2s ease-out}
+.proj-card:hover .proj-cta .arrow{transform:translateX(4px)}
+.proj-card:active{transform:translateY(0);box-shadow:var(--shadow)}
 @media(min-width:768px){
   .proj-card{padding:24px}
   .proj-card-title{font-size:17px}
@@ -198,6 +205,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .exp-role{font-size:11.5px;color:var(--text-secondary);margin:1px 0 3px}
 .exp-result{font-size:11.5px;color:var(--text-secondary);line-height:1.5}
 .exp-result strong{color:var(--text-primary);font-weight:700}
+.exp-intro{font-size:12.5px;color:var(--text-secondary);margin-bottom:16px;line-height:1.7;max-width:680px}
 .exp-dot,.timeline::before{display:none}
 
 @media(min-width:768px){
@@ -306,8 +314,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .sec-title{font-size:9px;margin-bottom:8px;color:#666}
   .sec-title::after{display:none}
   .story-content p{font-size:10.5px;line-height:1.7;margin-bottom:8px}
-  .story-highlight{font-size:12px!important;padding:8px 0}
-  .story-quote{font-size:10.5px!important}
+  .story-highlight{font-size:12px!important;padding:8px 0;margin:4px 0}
+  .story-quote{font-size:10.5px!important;padding:6px 10px;background:none;border-left:2px solid #D94F3A}
+  .story-trust{font-size:9px;margin-top:10px;padding-top:8px}
+  .exp-intro{font-size:10px;margin-bottom:10px;line-height:1.6}
   .principles{gap:8px}
   .principle-title{font-size:11px}
   .principle-desc{font-size:10px;line-height:1.6}
@@ -416,10 +426,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <section class="section" id="story" aria-label="我的故事">
     <h2 class="sec-title">我的故事</h2>
     <div class="story-content">
-      <p>有人问我为什么从腾讯去3个人的创业公司。我说，在腾讯我学会了体系，但我想知道，如果什么都没有，我能不能自己长出一套来。</p>
-      <p>后来我在游民一个人就是一套SOP，在顺丰把异业联动转化率翻了快3倍，在宁远从0搭了20人团队撑住500家机构交付。现在在友时，我用AI把整条视觉生产流水线重画了一遍。</p>
+      <p>我从腾讯出来的时候，很多人不理解。在腾讯我学会了什么叫体系——几百人按同一套节奏走。但我想知道，如果什么都没有，我能不能自己长出一套来。</p>
+      <p>后来我在游民一个人就是一套SOP，在顺丰把异业联动转化率翻了快3倍，在宁远从0搭了20人团队撑住数百家机构交付。现在在友时，我用AI把整条视觉生产流水线重画了一遍。</p>
       <p class="story-highlight">10年，5家公司，4个行业。看起来跳得很散，但底层是同一件事：<strong>在没有路的地方，跑出一条路来，然后把它变成所有人都能走的体系。</strong></p>
       <p class="story-quote">好的交付不是靠人扛，是靠体系跑。这是我踩了无数坑之后，最相信的一件事。</p>
+      <div class="story-trust">
+        <span>PMP 认证</span>
+        <span class="trust-sep" aria-hidden="true">·</span>
+        <span>曾任腾讯</span>
+        <span class="trust-sep" aria-hidden="true">·</span>
+        <span>10 年项目交付</span>
+      </div>
     </div>
   </section>
 
@@ -431,28 +448,28 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
         <span class="p-num mono">01</span>
         <div class="principle-body">
           <div class="principle-title">先跑通，再沉淀</div>
-          <div class="principle-desc">别闭门写SOP，先让真实项目跑起来，方法自然会长出来。宁远的第一版SOP是用踩坑记录堆出来的，不是设计出来的。</div>
+          <div class="principle-desc">我从不闭门写SOP，先让真实项目跑起来，方法自然会长出来。宁远的第一版SOP是用踩坑记录堆出来的，不是设计出来的。</div>
         </div>
       </div>
       <div class="principle">
         <span class="p-num mono">02</span>
         <div class="principle-body">
           <div class="principle-title">范围前置是铁律</div>
-          <div class="principle-desc">销售为了签单什么都敢承诺，但交付不能跟着承诺走。深圳三院那次之后，我把"范围说明书签字确认"写成了交付第一步——没签的单，不交。</div>
+          <div class="principle-desc">被深圳三院的科主任骂过之后，我把"范围说明书签字确认"定成了铁律——没签的单，不交。</div>
         </div>
       </div>
       <div class="principle">
         <span class="p-num mono">03</span>
         <div class="principle-body">
           <div class="principle-title">框架授权，节点实控</div>
-          <div class="principle-desc">搭好框架就敢放手让团队成长，但里程碑和范围红线我一定自己盯。20人的团队，离职率8%，靠的不是管得多细，是该放的放、该收的收。</div>
+          <div class="principle-desc">我搭好框架就敢放手让团队成长，但里程碑和范围红线一定自己盯。20人的团队，离职率8%，靠的不是管得多细，是该放的放、该收的收。</div>
         </div>
       </div>
       <div class="principle">
         <span class="p-num mono">04</span>
         <div class="principle-body">
           <div class="principle-title">AI重画流程，不是加buff</div>
-          <div class="principle-desc">AI不是给PM省力气的工具，是能把整条流水线重画一遍的机会。友时把日均1-2套人工出图改成8倍自动化，不是"更快了"，是"原来的流程不存在了"。</div>
+          <div class="principle-desc">我用AI不是为了省力气，是把整条流水线重画一遍。友时把日均1-2套人工出图改成8倍自动化，不是"更快了"，是"原来的流程不存在了"。</div>
         </div>
       </div>
     </div>
@@ -466,20 +483,21 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="proj-cat mono">医疗SaaS</div>
       <div class="proj-card-title">公立医疗SaaS · 互联网医院规模化交付</div>
       <div class="proj-summary">从0搭交付体系，9个月撑住500+机构，准时率95%+</div>
-      <span class="proj-cta">查看完整故事 →</span>
+      <span class="proj-cta">查看完整故事 <span class="arrow">→</span></span>
     </button>
 
     <button class="proj-card" onclick="openModal('proj2')">
       <div class="proj-cat mono">AIGC · 电商</div>
       <div class="proj-card-title">AIGC驱动 · 电商运营提效</div>
       <div class="proj-summary">用AI重画出图流水线，产能8倍，上架周期砍70%+</div>
-      <span class="proj-cta">查看完整故事 →</span>
+      <span class="proj-cta">查看完整故事 <span class="arrow">→</span></span>
     </button>
   </section>
 
   <!-- EXPERIENCE -->
   <section class="section" id="experience" aria-label="职业经历">
     <h2 class="sec-title">职业经历</h2>
+    <p class="exp-intro">从游戏到物流到医疗到电商，看起来跳得很散，但每一步都是在练同一件事：在没有路的地方搭体系。</p>
     <div class="timeline">
       <div class="exp current">
         <div class="exp-dot"></div>
@@ -573,8 +591,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <section class="section" id="outside" aria-label="工作之外">
     <h2 class="sec-title">工作之外</h2>
     <div class="outside-content">
-      <div class="outside-item"><span class="outside-label">最近在折腾：</span>OZONOPS 跨境电商 SaaS，用多个 AI agent 从0跑通俄罗斯市场的半精铺模式。</div>
-      <div class="outside-item"><span class="outside-label">最近在学：</span>ComfyUI 工作流设计、AI Agent 编排、俄语（为了 OZON 平台）。</div>
+      <div class="outside-item"><span class="outside-label">我最近在折腾：</span>OZONOPS 跨境电商 SaaS，用多个 AI agent 从0跑通俄罗斯市场的半精铺模式。</div>
+      <div class="outside-item"><span class="outside-label">我最近在学：</span>ComfyUI 工作流设计、AI Agent 编排、俄语（为了 OZON 平台）。</div>
       <div class="outside-tags">
         <span>10年交付老兵</span><span>AI 工具控</span><span>跨境电商创业者</span><span>深圳本地人</span>
       </div>
@@ -584,7 +602,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <!-- CONTACT -->
   <section class="bottom-contact" id="contact-section">
     <h3>欢迎沟通</h3>
-    <p>如果你在找一个能扛事、也能搭体系的PM，<br>或者就是想聊聊交付和AI，欢迎加我微信。</p>
+    <p>如果你在找一个能扛事、也能搭体系的PM，<br>或者就是想聊聊交付、AI和跨境电商，欢迎加我微信。通常24小时内回复。</p>
     <div class="qr-wrap"><img src="assets/qrcode.jpg" alt="微信二维码" loading="lazy" width="110" height="110"></div>
     <div class="wechat-id mono">DoubleGreens</div>
     <button class="btn-contact-bottom" aria-label="复制微信号" onclick="copyWechat(this)">
