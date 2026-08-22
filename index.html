@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
 <title>Greens · 资深项目经理 | 交付体系搭建 · AI流程重构</title>
 <meta name="description" content="Greens，资深项目经理。做了10年项目交付，曾任腾讯。相信好的交付靠体系跑，不靠人扛。">
 <link rel="preload" href="assets/fonts/Outfit-900.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,16 +25,6 @@
   --shadow:0 1px 4px rgba(0,0,0,.04),0 2px 8px rgba(0,0,0,.06);
   --shadow-hover:0 4px 14px rgba(0,0,0,.08),0 3px 6px rgba(0,0,0,.05);
   --radius:10px;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg-page:#141414;--bg-card:#1E1E1E;
-    --text-primary:#E8E6E1;--text-secondary:#888;--text-meta:#666;
-    --border-soft:#2A2A2A;--acc:#E85D4E;
-    --tag-bg:#262626;--tag-text:#999;
-    --shadow:0 1px 4px rgba(0,0,0,.2),0 2px 8px rgba(0,0,0,.15);
-    --shadow-hover:0 4px 14px rgba(0,0,0,.3),0 3px 6px rgba(0,0,0,.2);
-  }
 }
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -151,6 +142,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .principle-desc{font-size:13px;line-height:1.75;color:var(--text-secondary)}
 @media(min-width:768px){.principle-title{font-size:15px}.principle-desc{font-size:13.5px}}
 
+/* ============ PROBLEM ============ */
+.problem-content{max-width:680px}
+.problem-content p{font-size:14.5px;line-height:1.85;color:var(--text-secondary)}
+.problem-content p strong{color:var(--text-primary);font-weight:700}
+@media(min-width:768px){.problem-content p{font-size:15px}}
+
 /* ============ PROJECT CARDS ============ */
 .proj-card{background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:14px;cursor:pointer;transition:box-shadow .25s,transform .25s;text-align:left;width:100%;display:block}
 .proj-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
@@ -201,6 +198,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .exp{padding:12px 0;border-bottom:1px solid var(--border-soft)}
 .exp:last-child{border-bottom:none}
 .exp-year{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--text-meta);margin-bottom:2px}
+.exp-turn{font-family:'Outfit','PingFang SC',sans-serif;font-size:9px;font-weight:700;color:var(--acc);letter-spacing:.5px;margin-left:8px;text-transform:uppercase}
 .exp-company{font-size:13.5px;font-weight:800;line-height:1.3;color:var(--text-primary)}
 .exp-role{font-size:11.5px;color:var(--text-secondary);margin:1px 0 3px}
 .exp-result{font-size:11.5px;color:var(--text-secondary);line-height:1.5}
@@ -278,14 +276,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 @media(min-width:768px){.footer{grid-column:2;padding:20px 36px}}
 @media(min-width:1200px){.footer{padding:20px 48px}}
 
-/* ============ DARK MODE ============ */
-@media(prefers-color-scheme:dark){
-  .sidebar-photo{background:#262626}
-  .proj-card:hover{background:#252525}
-  .qr-wrap{background:#141414}
-  .mobile-bar{background:#1E1E1E}
-}
-
 /* ============ PRINT ============ */
 @media print{
   @page{size:A4;margin:12mm}
@@ -318,6 +308,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .story-quote{font-size:10.5px!important;padding:6px 10px;background:none;border-left:2px solid #D94F3A}
   .story-trust{font-size:9px;margin-top:10px;padding-top:8px}
   .exp-intro{font-size:10px;margin-bottom:10px;line-height:1.6}
+  .exp-turn{font-size:8px}
+  .problem-content p{font-size:10.5px;line-height:1.6;margin-bottom:6px}
   .principles{gap:8px}
   .principle-title{font-size:11px}
   .principle-desc{font-size:10px;line-height:1.6}
@@ -338,6 +330,83 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .qr-wrap{display:none}
   .footer{display:none}
   *{animation:none!important;transition:none!important}
+}
+
+/* ============ PORTFOLIO REDESIGN OVERRIDES ============ */
+:root{
+  --bg-page:#F6F4EF;
+  --bg-card:#FFFDF9;
+  --text-primary:#22211E;
+  --text-secondary:#6E6A62;
+  --text-meta:#999288;
+  --border-soft:#E5E0D7;
+  --acc:#C94B35;
+  --tag-bg:#ECE8DF;
+  --tag-text:#5F5A52;
+  --shadow:0 2px 12px rgba(47,38,26,.06);
+  --shadow-hover:0 10px 28px rgba(47,38,26,.12);
+  --radius:12px;
+}
+
+/* The portfolio stays light even when the visitor uses a dark system theme. */
+body{background:var(--bg-page)}
+.sidebar-card,.proj-card,.bottom-contact,.mobile-bar{background:var(--bg-card)}
+.sidebar-photo{box-shadow:none;border:1px solid var(--border-soft)}
+.main{padding-top:28px}
+.sec-title{color:#81796E;letter-spacing:1.5px}
+.story-highlight{font-size:clamp(18px,2.4vw,27px)!important;line-height:1.35!important;max-width:720px}
+.proj-card{border:1px solid var(--border-soft);box-shadow:none}
+.proj-card:hover{border-color:var(--acc)}
+.proj-card-title{font-size:clamp(17px,2vw,22px)}
+.proj-summary{font-size:14px}
+.bottom-contact{border:1px solid var(--border-soft);box-shadow:none}
+
+@media(max-width:767px){
+  body{padding-bottom:76px}
+  .page{display:flex;flex-direction:column}
+  .sidebar{padding:22px 18px 8px}
+  .sidebar-top{align-items:center;gap:16px}
+  .sidebar-photo{width:76px;height:86px;border-radius:10px}
+  .sidebar-name{font-size:32px}
+  .sidebar-title{font-size:13px}
+  .sidebar-edu-mobile{font-size:11px}
+  .sidebar-quick{margin-top:16px;padding-top:14px;gap:28px}
+  .sidebar-quick .q-num{font-size:24px}
+  .sidebar-mobile-actions{margin-top:14px}
+  .btn-contact-mobile{padding:12px 10px;border-radius:9px}
+  .main{display:flex;flex-direction:column;padding:20px 18px 30px}
+  .section{margin-bottom:34px}
+  #projects{order:1}
+  #story{order:2}
+  #experience{order:3}
+  #how{order:4}
+  #tools{order:5}
+  #outside{order:6}
+  #contact-section{order:7}
+  .sec-title{font-size:10px;margin-bottom:12px}
+  .story-content p{font-size:15px;line-height:1.8}
+  .story-content p:first-child{font-size:18px;line-height:1.5;color:var(--text-primary);font-weight:700}
+  .story-highlight{padding:12px 0;margin:4px 0;font-size:21px!important}
+  .story-quote{font-size:14px;padding:12px 14px}
+  .story-trust{gap:6px;flex-wrap:wrap;font-size:10px}
+  .proj-card{padding:18px;margin-bottom:10px}
+  .proj-card-title{font-size:19px;line-height:1.35}
+  .proj-summary{font-size:14px;line-height:1.55}
+  .exp-intro{font-size:13px}
+  .exp{padding:14px 0}
+  .exp-company{font-size:15px}
+  .exp-role,.exp-result{font-size:13px}
+  .principles{gap:16px}
+  .principle-title{font-size:15px}
+  .principle-desc{font-size:13px;line-height:1.7}
+  .bottom-contact{display:block;text-align:left;padding:22px 18px;margin-top:0}
+  .bottom-contact h3{font-size:23px}
+  .bottom-contact p{font-size:14px}
+  .qr-wrap{display:block;width:max-content}
+  .btn-contact-bottom{width:100%}
+  .mobile-bar{padding:10px 14px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--border-soft);box-shadow:0 -5px 18px rgba(47,38,26,.09)}
+  .mobile-bar button{border-radius:9px}
+  .mobile-bar .btn-copy{background:var(--acc)}
 }
 </style>
 </head>
@@ -360,7 +429,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="name-underline"></div>
       <div class="sidebar-title">资深项目经理 / Senior PM</div>
       <div class="sidebar-edu-mobile">自考本科 · PMP 认证</div>
-      <p class="sidebar-tagline">做了10年项目交付，曾任腾讯。我越来越相信一件事：好的交付靠体系跑，不靠人扛。</p>
+      <p class="sidebar-tagline">我处理的是那些没有现成路可走、但必须交付的项目。10年，做过游戏、物流、医疗SaaS和电商，现在把AI和跨境也放进这套方法里。</p>
     </div>
   </div>
 
@@ -406,6 +475,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     <nav class="sidebar-nav" aria-label="页面导航">
       <a href="#story" class="nav-link">我的故事</a>
       <a href="#how" class="nav-link">做事方式</a>
+      <a href="#problem" class="nav-link">面对的问题</a>
       <a href="#projects" class="nav-link">精选案例</a>
       <a href="#experience" class="nav-link">职业经历</a>
       <a href="#tools" class="nav-link">工具技能</a>
@@ -475,20 +545,28 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     </div>
   </section>
 
+  <!-- WHAT I DEAL WITH -->
+  <section class="section" id="problem" aria-label="我正在处理的问题">
+    <h2 class="sec-title">我正在处理的问题</h2>
+    <div class="problem-content">
+      <p>我接手的项目，大多没有现成路可走：流程是空白的，需求在变，研发排不上，销售还在签新单。这种时候我不先写计划，而是先找一个最小的真实场景跑起来。跑通了，再把路径变成SOP、变成分层标准、变成别人也能走的体系。</p>
+    </div>
+  </section>
+
   <!-- SELECTED CASES -->
   <section class="section" id="projects" aria-label="精选案例">
     <h2 class="sec-title">精选案例</h2>
 
     <button class="proj-card" onclick="openModal('proj1')">
       <div class="proj-cat mono">医疗SaaS</div>
-      <div class="proj-card-title">公立医疗SaaS · 互联网医院规模化交付</div>
+      <div class="proj-card-title">合同写两周上线，研发排期却在三个月后</div>
       <div class="proj-summary">从0搭交付体系，9个月撑住500+机构，准时率95%+</div>
       <span class="proj-cta">查看完整故事 <span class="arrow">→</span></span>
     </button>
 
     <button class="proj-card" onclick="openModal('proj2')">
       <div class="proj-cat mono">AIGC · 电商</div>
-      <div class="proj-card-title">AIGC驱动 · 电商运营提效</div>
+      <div class="proj-card-title">一天出2套图，改到第四版还在说"感觉不对"</div>
       <div class="proj-summary">用AI重画出图流水线，产能8倍，上架周期砍70%+</div>
       <span class="proj-cta">查看完整故事 <span class="arrow">→</span></span>
     </button>
@@ -502,7 +580,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="exp current">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2024 - 至今</div>
+          <div class="exp-year mono">2024 - 至今 <span class="exp-turn">学AI重画流程</span></div>
           <div class="exp-company">深圳友时文化有限公司</div>
           <div class="exp-role">项目经理 / 交付负责人</div>
           <div class="exp-result">我用AIGC工作流重构了视觉生产，从0到1搭了OZONOPS跨境SaaS。</div>
@@ -511,7 +589,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2020 - 2024</div>
+          <div class="exp-year mono">2020 - 2024 <span class="exp-turn">学规模化交付</span></div>
           <div class="exp-company">深圳宁远科技股份有限公司</div>
           <div class="exp-role">项目交付经理 / 深圳区域负责人</div>
           <div class="exp-result">我从0搭了20人团队和交付体系，<strong>建立了可复制的互联网医院交付标准</strong>。</div>
@@ -520,7 +598,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2019 - 2020</div>
+          <div class="exp-year mono">2019 - 2020 <span class="exp-turn">学增长验证</span></div>
           <div class="exp-company">深圳顺丰同城物流有限公司</div>
           <div class="exp-role">活动项目经理</div>
           <div class="exp-result">百城万单异业联动，我把转化率从6%拉到16%，<strong>单月拉新20W+</strong>。</div>
@@ -529,7 +607,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2017 - 2019</div>
+          <div class="exp-year mono">2017 - 2019 <span class="exp-turn">学0到1</span></div>
           <div class="exp-company">上海游民网络科技有限公司</div>
           <div class="exp-role">游戏发行 / 汇报创新发展部CMO</div>
           <div class="exp-result">2-3人团队0流程全案发行，我一个人就是一套SOP。《领主总动员》预月百万流水，《狩游世界》TapTap 8.5分。</div>
@@ -538,7 +616,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="exp">
         <div class="exp-dot"></div>
         <div class="exp-main">
-          <div class="exp-year mono">2015 - 2017</div>
+          <div class="exp-year mono">2015 - 2017 <span class="exp-turn">学体系</span></div>
           <div class="exp-company">腾讯科技（深圳）有限公司</div>
           <div class="exp-role">游戏中心运营 / 手Q游戏中心</div>
           <div class="exp-result">我统筹天天酷跑、王者荣耀等头部产品资源排期，<strong>千万级DAU产品，多项目并行0延期</strong>。</div>
@@ -648,6 +726,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
         <p>九个月后，那本从踩坑里长出来的SOP撑住了<strong>500+机构</strong>交付，准时率<strong>95%+</strong>，沉淀<strong>12项</strong>标准SOP，人均效能+50%。固生堂的年框续约翻了一倍多。我带的20人交付团队，新人从入职到独立扛项目只需要2周，离职率8%（行业平均15%）。</p>
         <div class="star-insight">最大的收获是：好流程不是设计出来的，是跑出来的。先让真实项目跑起来，方法自然会长出来。闭门写的SOP，再完美也没用。</div>
       </div>
+      <div class="star-section">
+        <h4 class="star-label">🔍 复盘</h4>
+        <p>最开始我以为交付的难点是效率——流程不够快、人不够多。三院那次之后我才意识到，真正的瓶颈是销售承诺和交付范围从来没有被共同确认过。销售签单时画的饼，交付端全要买单。"范围说明书签字确认"后来成了铁律，不是流程洁癖，是被骂出来的教训。</p>
+      </div>
     </div>
     <div class="modal-footer">
       <span class="modal-tags mono">#交付体系 #SaaS #从0到1 #范围管理</span>
@@ -683,6 +765,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
         <p>产能拉到<strong>8倍</strong>，上架周期砍了<strong>70%+</strong>，转化率峰值<strong>10%</strong>。设计师从"画图工"变成"AI工作流调优师"，离职率反而降了——因为不用再做重复劳动了。</p>
         <p>后来用同样的思路搭了 OZONOPS，多个 AI agent 从0跑通了跨境电商 SaaS。</p>
         <div class="star-insight">最大的收获是：AI不是给人加buff，是能把整条流水线重画一遍。原来的流程不存在了，新的流程需要重新设计——这才是PM在AI时代的价值。</div>
+      </div>
+      <div class="star-section">
+        <h4 class="star-label">🔍 复盘</h4>
+        <p>自动化并没有让所有环节都变好。早期出图质量不稳定，运营反而要花更多时间挑图。后来我发现，真正有效的不是"让AI做一切"，而是把重复判断先变成规则——哪些底色、哪些角度、哪些风格转化好，先沉淀成标签和模板，AI才有发挥的边界。工具替代不了判断，但能把判断的结果复制一万遍。</p>
       </div>
     </div>
     <div class="modal-footer">
